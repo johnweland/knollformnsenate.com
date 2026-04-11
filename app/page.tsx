@@ -1,65 +1,184 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, ChevronRight } from "lucide-react";
 
-export default function Home() {
+import { Button } from "@/components/ui/button";
+import {
+  PageSection,
+  PageTitle,
+  SplitHeroSection,
+} from "@/components/campaign-ui";
+import { candidateProfile, issues, issuesOverview, newsArticles } from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    `${candidateProfile.hero.headline}. ${candidateProfile.hero.subheadline}`,
+};
+
+const featuredNews = newsArticles.slice(0, 3);
+const [dispatchLead, ...dispatchSidebars] = featuredNews;
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      <SplitHeroSection
+        imageSrc="/candidate-placeholder.svg"
+        imageAlt="Chris Knoll campaign portrait graphic"
+        eyebrow={candidateProfile.race}
+        title={candidateProfile.hero.headline}
+        description={candidateProfile.hero.subheadline}
+        actions={
+          <>
+            <Button asChild size="lg" className="campaign-button-primary h-12 px-6 text-sm uppercase tracking-[0.18em]">
+              <Link href="/volunteer">
+                Volunteer
+                <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="secondary"
+              size="lg"
+              className="h-12 bg-secondary px-6 text-sm uppercase tracking-[0.18em] text-secondary-foreground"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <Link href="/about">Learn More</Link>
+            </Button>
+          </>
+        }
+      />
+
+      <PageSection tone="paper">
+        <div className="space-y-14">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl space-y-4">
+              <p className="campaign-kicker">The Platform</p>
+              <h2 className="font-sans text-4xl font-black tracking-[-0.04em] text-foreground sm:text-5xl">
+                Core Priorities
+              </h2>
+            </div>
+            <p className="max-w-sm font-serif text-xl italic leading-8 text-muted-foreground">
+              {issuesOverview}
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {issues.slice(0, 3).map((issue) => (
+              <article
+                key={issue.slug}
+                className="campaign-card group flex h-full flex-col justify-between p-10 transition-transform duration-300 hover:-translate-y-2"
+              >
+                <div>
+                  <p className="campaign-kicker">{issue.eyebrow}</p>
+                  <h3 className="mt-4 text-3xl font-bold tracking-tight text-foreground">
+                    {issue.title}
+                  </h3>
+                  <p className="mt-4 text-lg leading-8 text-muted-foreground">
+                    {issue.summary}
+                  </p>
+                </div>
+                <Link
+                  href="/issues"
+                  className="mt-10 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-primary transition-all group-hover:gap-4"
+                >
+                  View Issues
+                  <ChevronRight className="size-4" />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </PageSection>
+
+      <PageSection tone="paper">
+        <div className="space-y-12">
+          <div className="flex flex-col gap-4 border-b-4 border-primary pb-4 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="font-sans text-4xl font-black uppercase tracking-[-0.04em] text-foreground sm:text-5xl">
+              Campaign Dispatch
+            </h2>
+            <Link
+              href="/news"
+              className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-primary"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              Archive / All News
+            </Link>
+          </div>
+
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+            <article className="group space-y-6">
+              <Link
+                href={`/news/${dispatchLead.slug}`}
+                className="block overflow-hidden rounded-lg bg-muted shadow-lg"
+              >
+                <div className="aspect-[16/9] bg-[linear-gradient(135deg,rgba(190,0,20,0.88),rgba(64,92,158,0.82))]" />
+              </Link>
+              <div className="space-y-4">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+                  {dispatchLead.category} - {dispatchLead.date}
+                </p>
+                <h3 className="text-3xl font-black tracking-[-0.03em] text-foreground transition-colors group-hover:text-primary sm:text-4xl">
+                  <Link href={`/news/${dispatchLead.slug}`}>{dispatchLead.title}</Link>
+                </h3>
+                <p className="text-xl leading-8 text-muted-foreground">
+                  {dispatchLead.summary}
+                </p>
+                <Link
+                  href={`/news/${dispatchLead.slug}`}
+                  className="inline-flex items-center gap-2 border-b border-primary pb-1 text-sm font-bold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-primary"
+                >
+                  Continue Reading
+                  <ArrowUpRight className="size-4" />
+                </Link>
+              </div>
+            </article>
+
+            <div className="space-y-8">
+              {dispatchSidebars.map((article) => (
+                <article key={article.slug} className="group flex gap-5">
+                  <Link
+                    href={`/news/${article.slug}`}
+                    className="block h-28 w-28 flex-shrink-0 overflow-hidden rounded-lg bg-[linear-gradient(135deg,rgba(64,92,158,0.88),rgba(190,0,20,0.72))]"
+                  />
+                  <div className="space-y-2">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary">
+                      {article.category}
+                    </p>
+                    <h4 className="text-xl font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-primary">
+                      <Link href={`/news/${article.slug}`}>{article.title}</Link>
+                    </h4>
+                    <p className="line-clamp-2 leading-7 text-muted-foreground">
+                      {article.summary}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </PageSection>
+
+      <PageSection tone="muted">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <PageTitle
+            eyebrow="Volunteer"
+            title="Volunteer with Chris Knoll for Minnesota Senate District 21."
+            description="Add your name to the campaign volunteer list and help share the message across southern Minnesota."
+          />
+          <div className="campaign-card flex flex-col gap-5 p-8">
+            <p className="text-base leading-7 text-muted-foreground">
+              Start with the volunteer page to share your contact information and how you would
+              like to help.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button asChild size="lg" className="campaign-button-primary h-12 px-6 text-sm uppercase tracking-[0.18em]">
+                <Link href="/volunteer">Join the Volunteer List</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="h-12 px-6 text-sm uppercase tracking-[0.18em]">
+                <Link href="/news">Read Campaign Info</Link>
+              </Button>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </PageSection>
+    </>
   );
 }
