@@ -17,7 +17,11 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-white/30 bg-background/85 backdrop-blur-xl">
       <div className="campaign-container py-4">
         <div className="flex min-h-14 items-center justify-between gap-4">
-          <Link href="/" className="flex flex-col" onClick={() => setIsOpen(false)}>
+          <Link
+            href="/"
+            className="flex flex-col"
+            onClick={() => setIsOpen(false)}
+          >
             <span className="text-sm font-bold uppercase tracking-[0.22em] text-primary">
               Chris Knoll
             </span>
@@ -31,7 +35,8 @@ export function SiteHeader() {
                 const active =
                   item.href === "/"
                     ? pathname === item.href
-                    : pathname === item.href || pathname.startsWith(`${item.href}/`);
+                    : pathname === item.href ||
+                      pathname.startsWith(`${item.href}/`);
 
                 return (
                   <Link
@@ -47,14 +52,24 @@ export function SiteHeader() {
                 );
               })}
             </nav>
-            <Button asChild className="campaign-button-primary h-10 px-4 text-xs uppercase tracking-[0.18em]">
-              <Link href="/volunteer">Volunteer</Link>
+            <Button
+              asChild
+              className="campaign-button-primary h-10 px-4 text-xs uppercase tracking-[0.18em]"
+            >
+              <Link
+                href="https://secure.winred.com/knoll-for-mn-senate-f5a4118f/donate-today"
+                target="_blank"
+              >
+                Donate
+              </Link>
             </Button>
           </div>
           <button
             type="button"
             aria-expanded={isOpen}
-            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              isOpen ? "Close navigation menu" : "Open navigation menu"
+            }
             className="flex size-11 items-center justify-center rounded-md border border-border bg-background text-foreground lg:hidden"
             onClick={() => setIsOpen((open) => !open)}
           >
@@ -68,7 +83,8 @@ export function SiteHeader() {
                 const active =
                   item.href === "/"
                     ? pathname === item.href
-                    : pathname === item.href || pathname.startsWith(`${item.href}/`);
+                    : pathname === item.href ||
+                      pathname.startsWith(`${item.href}/`);
 
                 return (
                   <Link
@@ -85,9 +101,16 @@ export function SiteHeader() {
                 );
               })}
             </nav>
-            <Button asChild className="campaign-button-primary mt-5 h-11 w-full px-4 text-xs uppercase tracking-[0.18em]">
-              <Link href="/volunteer" onClick={() => setIsOpen(false)}>
-                Volunteer
+            <Button
+              asChild
+              className="campaign-button-primary mt-5 h-11 w-full px-4 text-xs uppercase tracking-[0.18em]"
+            >
+              <Link
+                href="https://secure.winred.com/knoll-for-mn-senate-f5a4118f/donate-today"
+                target="_blank"
+                onClick={() => setIsOpen(false)}
+              >
+                Donate
               </Link>
             </Button>
           </div>
