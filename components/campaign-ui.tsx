@@ -3,7 +3,8 @@ import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import { ArrowUpRight } from "lucide-react";
 
-import type { NewsArticle } from "@/lib/content";
+import { sharedComponentContent } from "@/lib/content";
+import type { NewsArticle } from "@/lib/news";
 import { cn } from "@/lib/utils";
 
 export function PageSection({
@@ -282,7 +283,7 @@ export function NewsCard({
           href={`/news/${article.slug}`}
           className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-secondary transition-colors hover:text-primary"
         >
-          Read article
+          {sharedComponentContent.newsCardReadLabel}
           <ArrowUpRight className="size-4" />
         </Link>
       </div>

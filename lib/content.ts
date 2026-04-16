@@ -13,6 +13,8 @@ export const footerNavigationItems = [
   { href: "/volunteer", label: "Volunteer" },
 ];
 
+export const PLACEHOLDER_CONTENT = "content needed";
+
 export type CandidateProfile = {
   name: string;
   race: string;
@@ -33,30 +35,30 @@ export type CandidateProfile = {
 export const candidateProfile: CandidateProfile = {
   name: "Chris Knoll",
   race: "Minnesota State Senate District 21",
-  status: "Republican-endorsed candidate",
-  residence: "St. James, Minnesota",
-  family: "Lives in St. James with his wife, Amanda, and their blended family.",
+  status: "Endorsed Republican candidate",
+  residence: PLACEHOLDER_CONTENT,
+  family: PLACEHOLDER_CONTENT,
   shortBio:
-    "Chris Knoll is a rural Minnesota leader, healthcare executive, and nonprofit administrator serving as CEO of Minnewaska Community Health Services. He is running for Minnesota Senate District 21 to bring practical experience, fiscal accountability, and a strong rural voice to St. Paul.",
+    "Chris Knoll is the CEO of Minnewaska Community Health Services and a licensed Department of Human Services provider with firsthand experience navigating state government systems.",
   longBio:
-    "Chris Knoll was born in Litchfield and grew up in communities across rural Minnesota. He graduated from Sartell High School in 2001, earned a BA in Public Administration with an emphasis in Healthcare Administration from St. Cloud State University, and later completed a Master of Public Administration from Minnesota State University, Mankato. He began his career in senior care, became a Licensed Nursing Home Administrator, and joined Minnewaska Community Health Services in 2014. He was named CEO in 2018. Under his leadership, the organization has expanded its work in senior care and assisted living operations across rural Minnesota. His campaign centers on practical leadership, rural healthcare access, fiscal accountability, and representation for southern Minnesota communities.",
+    "Chris Knoll is a CEO for Minnewaska Community Health Services and a licensed Department of Human Services provider with firsthand experience navigating state government systems. He earned his Bachelor's degree in Public Administration from St. Cloud State University and became a Licensed Nursing Home Administrator after completing rigorous state and federal testing, along with BCA and FBI background checks. He maintains his licensure through annual renewals, continuing education, and strict compliance standards. While working full time, Chris also earned his Master's degree in Public Administration from Minnesota State University, Mankato.",
   professionalDetails: [
     "CEO of Minnewaska Community Health Services",
-    "Background in healthcare leadership, nonprofit management, and rural public policy",
-    "Has served as an election judge",
-    "Watonwan County BPOU Chair",
-    "Member of the Watonwan County Health and Human Services board",
-    "Member of the LeadingAge Public Policy steering committee",
-    "Treasurer of the LeadingAge PAC Board",
+    "Licensed Department of Human Services provider",
+    "Licensed Nursing Home Administrator",
+    "Maintains licensure through annual renewals, continuing education, and strict compliance standards",
+    "Completed rigorous state and federal testing, along with BCA and FBI background checks",
+    "Earned a Bachelor's degree in Public Administration from St. Cloud State University",
+    "Earned a Master's degree in Public Administration from Minnesota State University, Mankato while working full time",
   ],
   coreMessage:
-    "Our region deserves representation that protects rural healthcare, strengthens public safety, supports strong schools, defends constitutional rights, and champions agriculture and small business.",
+    "“You cannot legislate for one—you must legislate for all.” This principle reflects a commitment to fairness, accountability, and policies that serve the entire community.",
   districtContext:
-    "Minnesota Senate District 21 includes Lincoln, Pipestone, Murray, Rock, Nobles, Cottonwood, and Jackson Counties, plus parts of Watonwan and Martin Counties.",
+    "Across the district, individuals and businesses are feeling the effects of overregulation and government overreach. Chris Knoll is committed to restoring balance, strengthening the local economy, and ensuring Minnesota remains competitive.",
   hero: {
     headline: "Chris Knoll for Minnesota Senate District 21",
     subheadline:
-      "Republican-endorsed candidate focused on rural healthcare, government accountability, and common-sense leadership for southern Minnesota.",
+      "Leading with Faith and Inspiring Hope. As the endorsed Republican candidate, Chris Knoll is committed to serving the people of District 21 and defending the values that define the community.",
   },
 };
 
@@ -70,131 +72,280 @@ export type Issue = {
 
 export const issues: Issue[] = [
   {
-    slug: "budget-and-government-accountability",
+    slug: "law-and-order",
     eyebrow: "Priority One",
-    title: "Budget and Government Accountability",
+    title: "Law and Order",
     summary:
-      "Minnesotans expect government to be responsible stewards of taxpayer dollars. Chris Knoll supports tying funding to measurable outcomes, conducting line-by-line budget reviews, reducing bureaucratic bloat, and aggressively pursuing fraud in state-funded programs.",
+      "Laws must be enforced consistently and fairly. Public safety depends on accountability and respect for the rule of law.",
     points: [
-      "Tie funding to measurable outcomes.",
-      "Conduct line-by-line budget reviews.",
-      "Reduce bureaucratic bloat.",
-      "Aggressively pursue fraud in state-funded programs.",
+      "Laws must be enforced consistently and fairly.",
+      "Public safety depends on accountability and respect for the rule of law.",
     ],
   },
   {
-    slug: "welfare-fraud-daycare-fraud-oversight",
+    slug: "stop-fraud-and-restore-accountability",
     eyebrow: "Program Oversight",
-    title: "Welfare Fraud, Daycare Fraud & Oversight",
+    title: "Stop Fraud & Restore Accountability",
     summary:
-      "Programs meant to help vulnerable people should be protected from abuse. Chris Knoll supports strict eligibility and auditing standards, real-time fraud detection, meaningful consequences for bad actors, and removal of agencies or nonprofits that fail compliance reviews.",
+      "Chris will work to eliminate fraud within state programs and ensure that those who break the law are held accountable.",
     points: [
-      "Maintain strict eligibility and auditing standards.",
-      "Use real-time fraud detection.",
-      "Apply meaningful consequences for bad actors.",
-      "Remove agencies or nonprofits that fail compliance reviews.",
+      "Eliminate fraud within state programs.",
+      "Ensure that those who break the law are held accountable.",
     ],
   },
   {
-    slug: "overregulation-of-agriculture-and-rural-business",
-    eyebrow: "Rural Economy",
-    title: "Overregulation of Agriculture & Rural Business",
+    slug: "protect-constitutional-rights",
+    eyebrow: "Constitutional Freedoms",
+    title: "Protect Constitutional Rights",
     summary:
-      "Chris Knoll argues farmers and rural businesses need a real seat at the table. He supports impact assessments before new regulations, rural input into policymaking, and rolling back regulations that are duplicative or disconnected from practical reality.",
+      "The right to bear arms must be preserved. Public safety can be achieved without infringing on constitutional freedoms.",
     points: [
-      "Require impact assessments before new regulations.",
-      "Ensure rural input into policymaking.",
-      "Roll back duplicative regulations.",
-      "Roll back regulations disconnected from practical reality.",
+      "Preserve the right to bear arms.",
+      "Pursue public safety without infringing on constitutional freedoms.",
     ],
   },
   {
-    slug: "rural-healthcare-access-and-nursing-homes",
-    eyebrow: "Rural Care",
-    title: "Rural Healthcare Access & Nursing Homes",
+    slug: "education-reform",
+    eyebrow: "Schools",
+    title: "Education Reform",
     summary:
-      "Chris Knoll’s campaign emphasizes protecting rural providers and senior care access. He supports reforming boards that control Medicaid spending, removing mandates that drive rural providers out of business, supporting flexible staffing and reimbursement models, and keeping care close to home.",
+      "Schools should focus on core academics, reading, writing, and arithmetic, while empowering parents through school choice.",
     points: [
-      "Reform boards that control Medicaid spending.",
-      "Remove mandates that drive rural providers out of business.",
-      "Support flexible staffing and reimbursement models.",
-      "Keep care close to home.",
+      "Focus on core academics: reading, writing, and arithmetic.",
+      "Empower parents through school choice.",
     ],
   },
   {
-    slug: "taxes-and-spending-priorities",
-    eyebrow: "Fiscal Responsibility",
-    title: "Taxes & Spending Priorities",
+    slug: "support-frontline-workers",
+    eyebrow: "Essential Services",
+    title: "Support Frontline Workers",
     summary:
-      "Chris Knoll says Minnesota should live within its means, prioritize real needs, reduce regulatory and agency spending, and lower the tax burden over time.",
+      "Teachers, nurses, childcare providers, law enforcement, EMS, and firefighters deserve meaningful support. Funding should prioritize people, not bureaucracy.",
     points: [
-      "Live within Minnesota's means.",
-      "Prioritize real needs.",
-      "Reduce regulatory and agency spending.",
-      "Lower the tax burden over time.",
+      "Support teachers, nurses, childcare providers, law enforcement, EMS, and firefighters.",
+      "Prioritize people, not bureaucracy.",
+    ],
+  },
+  {
+    slug: "fiscal-responsibility",
+    eyebrow: "Taxpayer Stewardship",
+    title: "Fiscal Responsibility",
+    summary:
+      "State spending must be controlled. Minnesota families are already overburdened, and government must live within its means.",
+    points: [
+      "Control state spending.",
+      "Government must live within its means.",
+    ],
+  },
+  {
+    slug: "support-small-business-and-agriculture",
+    eyebrow: "District 21 Economy",
+    title: "Support Small Business & Agriculture",
+    summary:
+      "Farmers, producers, and small business owners are the backbone of District 21. Reducing regulation and unfunded mandates will help them succeed.",
+    points: [
+      "Support farmers, producers, and small business owners.",
+      "Reduce regulation and unfunded mandates.",
+    ],
+  },
+  {
+    slug: "secure-elections",
+    eyebrow: "Election Integrity",
+    title: "Secure Elections",
+    summary:
+      "Election integrity is essential. Only eligible American citizens should participate in our elections at every level.",
+    points: [
+      "Protect election integrity.",
+      "Only eligible American citizens should participate in our elections at every level.",
+    ],
+  },
+  {
+    slug: "government-transparency",
+    eyebrow: "Results",
+    title: "Government Transparency",
+    summary:
+      "Taxpayer dollars must be used effectively. Programs should be evaluated based on measurable results and real outcomes.",
+    points: [
+      "Use taxpayer dollars effectively.",
+      "Evaluate programs based on measurable results and real outcomes.",
     ],
   },
 ];
 
 export const issuesOverview =
-  "Chris Knoll’s campaign focuses on five core priorities: government accountability, stronger fraud oversight, relief from overregulation for agriculture and rural business, protection of rural healthcare and nursing homes, and responsible taxes and spending.";
+  "District 21 families, farmers, and business owners deserve better.";
 
-export type NewsArticle = {
-  slug: string;
-  category: string;
-  date: string;
-  readTime: string;
-  title: string;
-  summary: string;
-  body: string[];
+export const siteHeaderContent = {
+  brandName: candidateProfile.name,
+  brandSubtitle: candidateProfile.race,
+  donateLabel: "Donate",
+  donateUrl: "https://secure.winred.com/knoll-for-mn-senate-f5a4118f/donate-today",
+  openNavigationLabel: "Open navigation menu",
+  closeNavigationLabel: "Close navigation menu",
 };
 
-export const newsArticles: NewsArticle[] = [
-  {
-    slug: "campaign-overview",
-    category: "Campaign Overview",
-    date: "Verified candidate information",
-    readTime: "2 min read",
-    title: "Chris Knoll for Minnesota Senate District 21",
-    summary:
-      "Chris Knoll is the Republican-endorsed candidate for Minnesota State Senate District 21 and is running on rural healthcare, government accountability, and common-sense leadership.",
-    body: [
-      candidateProfile.shortBio,
-      candidateProfile.coreMessage,
-      candidateProfile.districtContext,
-    ],
-  },
-  {
-    slug: "biography-and-leadership",
-    category: "Biography",
-    date: "Verified candidate information",
-    readTime: "3 min read",
-    title: "Background and leadership experience",
-    summary:
-      "Chris Knoll’s background includes healthcare leadership, nonprofit administration, rural public policy, and service in local and statewide roles.",
-    body: [
-      candidateProfile.longBio,
-      candidateProfile.family,
-      ...candidateProfile.professionalDetails,
-    ],
-  },
-  {
-    slug: "district-21-priorities",
-    category: "Issues",
-    date: "Verified candidate information",
-    readTime: "3 min read",
-    title: "Core priorities for District 21",
-    summary: issuesOverview,
-    body: [
-      issues[0].summary,
-      issues[1].summary,
-      issues[2].summary,
-      issues[3].summary,
-      issues[4].summary,
-    ],
-  },
-];
+export const siteFooterContent = {
+  campaignName: `${candidateProfile.name} for Senate`,
+  stayInformedLabel: "Stay Informed",
+  stayInformedDescription: PLACEHOLDER_CONTENT,
+  newsletterEmailLabel: "Email address",
+  newsletterEmailPlaceholder: "Enter your email address",
+  newsletterButtonLabel: "Stay Updated",
+  newsletterDisclaimer: PLACEHOLDER_CONTENT,
+  navigationLabel: "Navigation",
+  copyright: "© 2026 Paid for by Knoll for Senate Committee. All rights reserved.",
+};
 
-export function getArticleBySlug(slug: string) {
-  return newsArticles.find((article) => article.slug === slug);
-}
+export const sharedComponentContent = {
+  newsCardReadLabel: "Read article",
+};
+
+export const homePageContent = {
+  metadataTitle: "Home",
+  heroImageSrc: "/knoll_logo.webp",
+  heroImageAlt: "Chris Knoll campaign logo",
+  heroPrimaryCtaLabel: "Volunteer",
+  heroPrimaryCtaHref: "/volunteer",
+  heroSecondaryCtaLabel: "Learn More",
+  heroSecondaryCtaHref: "/about",
+  platformKicker: "The Platform",
+  platformTitle: "Core Priorities",
+  issueCtaLabel: "View Issues",
+  dispatchTitle: "Campaign Dispatch",
+  dispatchArchiveLabel: "Archive / All News",
+  dispatchReadLabel: "Continue Reading",
+  emptyNewsTitle: "No news yet",
+  emptyNewsDescription:
+    "No news yet. Add a markdown file in news-articles when campaign updates are ready.",
+  volunteerEyebrow: "Volunteer",
+  volunteerTitle: `Volunteer with ${candidateProfile.name} for ${candidateProfile.race}.`,
+  volunteerDescription: PLACEHOLDER_CONTENT,
+  volunteerBody:
+    "Start with the volunteer page to share your contact information and how you would like to help.",
+  volunteerPrimaryCtaLabel: "Join the Volunteer List",
+  volunteerPrimaryCtaHref: "/volunteer",
+  volunteerSecondaryCtaLabel: "Read Campaign Info",
+  volunteerSecondaryCtaHref: "/news",
+};
+
+export const aboutPageContent = {
+  metadataTitle: "About",
+  metadataDescription: `Learn more about ${candidateProfile.name}, his background, and his leadership experience in ${candidateProfile.race}.`,
+  heroImageSrc: "/knoll.webp",
+  heroImageAlt: "Chris Knoll portrait",
+  heroEyebrow: `About ${candidateProfile.name}`,
+  backgroundTitle: "Background",
+  overviewTitle: "Candidate Overview",
+  familyTitle: "Home and Family",
+  residenceLabel: "Residence",
+  focusTitle: "Campaign Focus",
+  experienceKicker: "The Experience to Lead",
+  experienceTitle: "Leadership Experience",
+  experienceDescription:
+    "Chris believes leadership requires selflessness, integrity, and a willingness to stand up for what is right.",
+  rolesTitle: "Leadership Roles",
+  districtTitle: "District 21",
+  districtLabel: "Southern Minnesota",
+  homeCommunityTitle: "Home Community",
+  campaignMessageTitle: "Campaign Message",
+  valuesKicker: "Values",
+  valuesTitle: "Core Message",
+  valuesDescription: candidateProfile.coreMessage,
+  involvementKicker: "Get Involved",
+  involvementTitle: "Support the campaign in District 21.",
+  involvementDescription: PLACEHOLDER_CONTENT,
+  involvementPrimaryCtaLabel: "View the Issues",
+  involvementPrimaryCtaHref: "/issues",
+  involvementSecondaryCtaLabel: "Volunteer",
+  involvementSecondaryCtaHref: "/volunteer",
+};
+
+export const issuesPageContent = {
+  metadataTitle: "Issues",
+  heroKicker: "Core Priorities",
+  heroTitleStart: "Issues for",
+  heroTitleHighlight: "District 21",
+  focusAreasTitle: "Focus Areas",
+  ctaTitle: "Support the campaign in District 21",
+  ctaPrimaryCtaLabel: "Volunteer",
+  ctaPrimaryCtaHref: "/volunteer",
+  ctaSecondaryCtaLabel: "About Chris",
+  ctaSecondaryCtaHref: "/about",
+};
+
+export const newsPageContent = {
+  metadataTitle: "News",
+  metadataDescription: PLACEHOLDER_CONTENT,
+  heroTitle: "Newsroom",
+  heroDescription: PLACEHOLDER_CONTENT,
+  emptyStateTitle: "No news yet",
+  emptyStateDescription:
+    "No news yet. Add a markdown file in news-articles when campaign updates are ready.",
+  featuredReadLabel: "Read the Full Dispatch",
+  briefingTitle: "Get the Briefing",
+  briefingDescription: PLACEHOLDER_CONTENT,
+  briefingEmailPlaceholder: "YOUR EMAIL ADDRESS",
+  briefingButtonLabel: "Join the Briefing",
+  overviewTitle: "Campaign Overview",
+  overviewButtonLabel: "Read Candidate Bio",
+};
+
+export const newsArticlePageContent = {
+  notFoundTitle: "Article Not Found",
+  heroImageSrc: "/editorial-placeholder.svg",
+  heroImageAlt: "Campaign article graphic",
+  nextStepKicker: "Next Step",
+  nextStepTitle: PLACEHOLDER_CONTENT,
+  primaryCtaLabel: "Volunteer",
+  primaryCtaHref: "/volunteer",
+  secondaryCtaLabel: "Back to News",
+  secondaryCtaHref: "/news",
+};
+
+export const volunteerPageContent = {
+  metadataTitle: "Volunteer",
+  metadataDescription: PLACEHOLDER_CONTENT,
+  heroEyebrow: "Volunteer",
+  heroTitleLineOne: "content",
+  heroTitleLineTwo: "needed",
+  heroPrimaryCtaLabel: "Join the Volunteer List",
+  heroPrimaryCtaHref: "#signup",
+  heroSecondaryCtaLabel: "Learn More",
+  heroSecondaryCtaHref: "#mission",
+  missionTitle: "Why Volunteer",
+  focusLabel: "Campaign Focus",
+  communityOutreachTitle: "Community Outreach",
+  communityOutreachDescription: PLACEHOLDER_CONTENT,
+  phoneBankingTitle: "Phone Banking",
+  phoneBankingDescription: PLACEHOLDER_CONTENT,
+  eventsTitle: "Events and Outreach",
+  eventsDescription: PLACEHOLDER_CONTENT,
+  signupTitle: "Join the campaign.",
+  signupDescription: PLACEHOLDER_CONTENT,
+  signupBenefits: ["Community Outreach", "Events", "Campaign Updates"],
+  formFirstNameLabel: "First Name",
+  formFirstNamePlaceholder: "John",
+  formLastNameLabel: "Last Name",
+  formLastNamePlaceholder: "Doe",
+  formEmailLabel: "Email Address",
+  formEmailPlaceholder: "john@example.com",
+  formZipLabel: "Zip Code",
+  formZipPlaceholder: "56081",
+  formInterestsLabel: "Interests",
+  formInterestsPlaceholder: "Select Option",
+  formInterestOptions: [
+    { value: "community-outreach", label: "Community Outreach" },
+    { value: "phone-banking", label: "Phone Banking" },
+    { value: "events", label: "Events" },
+    { value: "campaign-updates", label: "Campaign Updates" },
+  ],
+  formWhyLabel: "Why are you joining us?",
+  formWhyPlaceholder: "Tell us how you would like to help the campaign...",
+  formConsentLabel:
+    "By signing up, I agree to receive campaign emails and updates from Knoll for Senate.",
+  formSubmitLabel: "Join the Team",
+  updatesTitle: "Want updates from the campaign?",
+  updatesDescription: PLACEHOLDER_CONTENT,
+  updatesEmailPlaceholder: "Enter your email",
+  updatesButtonLabel: "Stay Updated",
+};

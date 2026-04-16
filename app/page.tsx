@@ -8,31 +8,37 @@ import {
   PageTitle,
   SplitHeroSection,
 } from "@/components/campaign-ui";
-import { candidateProfile, issues, issuesOverview, newsArticles } from "@/lib/content";
+import {
+  candidateProfile,
+  homePageContent,
+  issues,
+  issuesOverview,
+} from "@/lib/content";
+import { getAllNewsArticles } from "@/lib/news";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: homePageContent.metadataTitle,
   description:
     `${candidateProfile.hero.headline}. ${candidateProfile.hero.subheadline}`,
 };
 
-const featuredNews = newsArticles.slice(0, 3);
-const [dispatchLead, ...dispatchSidebars] = featuredNews;
+export default async function HomePage() {
+  const featuredNews = (await getAllNewsArticles()).slice(0, 3);
+  const [dispatchLead, ...dispatchSidebars] = featuredNews;
 
-export default function HomePage() {
   return (
     <>
       <SplitHeroSection
-        imageSrc="/candidate-placeholder.svg"
-        imageAlt="Chris Knoll campaign portrait graphic"
+        imageSrc={homePageContent.heroImageSrc}
+        imageAlt={homePageContent.heroImageAlt}
         eyebrow={candidateProfile.race}
         title={candidateProfile.hero.headline}
         description={candidateProfile.hero.subheadline}
         actions={
           <>
             <Button asChild size="lg" className="campaign-button-primary h-12 px-6 text-sm uppercase tracking-[0.18em]">
-              <Link href="/volunteer">
-                Volunteer
+              <Link href={homePageContent.heroPrimaryCtaHref}>
+                {homePageContent.heroPrimaryCtaLabel}
                 <ArrowRight className="size-4" />
               </Link>
             </Button>
@@ -42,7 +48,9 @@ export default function HomePage() {
               size="lg"
               className="h-12 bg-secondary px-6 text-sm uppercase tracking-[0.18em] text-secondary-foreground"
             >
-              <Link href="/about">Learn More</Link>
+              <Link href={homePageContent.heroSecondaryCtaHref}>
+                {homePageContent.heroSecondaryCtaLabel}
+              </Link>
             </Button>
           </>
         }
@@ -52,9 +60,9 @@ export default function HomePage() {
         <div className="space-y-14">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl space-y-4">
-              <p className="campaign-kicker">The Platform</p>
+              <p className="campaign-kicker">{homePageContent.platformKicker}</p>
               <h2 className="font-sans text-4xl font-black tracking-[-0.04em] text-foreground sm:text-5xl">
-                Core Priorities
+                {homePageContent.platformTitle}
               </h2>
             </div>
             <p className="max-w-sm font-serif text-xl italic leading-8 text-muted-foreground">
@@ -80,7 +88,7 @@ export default function HomePage() {
                   href="/issues"
                   className="mt-10 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-primary transition-all group-hover:gap-4"
                 >
-                  View Issues
+                  {homePageContent.issueCtaLabel}
                   <ChevronRight className="size-4" />
                 </Link>
               </article>
@@ -93,87 +101,117 @@ export default function HomePage() {
         <div className="space-y-12">
           <div className="flex flex-col gap-4 border-b-4 border-primary pb-4 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="font-sans text-4xl font-black uppercase tracking-[-0.04em] text-foreground sm:text-5xl">
-              Campaign Dispatch
+              {homePageContent.dispatchTitle}
             </h2>
             <Link
               href="/news"
               className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-primary"
             >
-              Archive / All News
+              {homePageContent.dispatchArchiveLabel}
             </Link>
           </div>
 
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-            <article className="group space-y-6">
-              <Link
-                href={`/news/${dispatchLead.slug}`}
-                className="block overflow-hidden rounded-lg bg-muted shadow-lg"
-              >
-                <div className="aspect-[16/9] bg-[linear-gradient(135deg,rgba(190,0,20,0.88),rgba(64,92,158,0.82))]" />
-              </Link>
-              <div className="space-y-4">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
-                  {dispatchLead.category} - {dispatchLead.date}
-                </p>
-                <h3 className="text-3xl font-black tracking-[-0.03em] text-foreground transition-colors group-hover:text-primary sm:text-4xl">
-                  <Link href={`/news/${dispatchLead.slug}`}>{dispatchLead.title}</Link>
-                </h3>
-                <p className="text-xl leading-8 text-muted-foreground">
-                  {dispatchLead.summary}
-                </p>
+          {dispatchLead ? (
+            <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+              <article className="group space-y-6">
                 <Link
                   href={`/news/${dispatchLead.slug}`}
-                  className="inline-flex items-center gap-2 border-b border-primary pb-1 text-sm font-bold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-primary"
+                  className="block overflow-hidden rounded-lg bg-muted shadow-lg"
                 >
-                  Continue Reading
-                  <ArrowUpRight className="size-4" />
-                </Link>
-              </div>
-            </article>
-
-            <div className="space-y-8">
-              {dispatchSidebars.map((article) => (
-                <article key={article.slug} className="group flex gap-5">
-                  <Link
-                    href={`/news/${article.slug}`}
-                    className="block h-28 w-28 flex-shrink-0 overflow-hidden rounded-lg bg-[linear-gradient(135deg,rgba(64,92,158,0.88),rgba(190,0,20,0.72))]"
+                  <div
+                    className="aspect-[16/9] bg-[linear-gradient(135deg,rgba(190,0,20,0.88),rgba(64,92,158,0.82))] bg-cover bg-center"
+                    style={
+                      dispatchLead.image
+                        ? {
+                            backgroundImage: `linear-gradient(135deg,rgba(25,28,29,0.45),rgba(25,28,29,0.2)), url(${dispatchLead.image})`,
+                          }
+                        : undefined
+                    }
                   />
-                  <div className="space-y-2">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary">
-                      {article.category}
-                    </p>
-                    <h4 className="text-xl font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-primary">
-                      <Link href={`/news/${article.slug}`}>{article.title}</Link>
-                    </h4>
-                    <p className="line-clamp-2 leading-7 text-muted-foreground">
-                      {article.summary}
-                    </p>
-                  </div>
-                </article>
-              ))}
+                </Link>
+                <div className="space-y-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+                    {dispatchLead.category} - {dispatchLead.date}
+                  </p>
+                  <h3 className="text-3xl font-black tracking-[-0.03em] text-foreground transition-colors group-hover:text-primary sm:text-4xl">
+                    <Link href={`/news/${dispatchLead.slug}`}>{dispatchLead.title}</Link>
+                  </h3>
+                  <p className="text-xl leading-8 text-muted-foreground">
+                    {dispatchLead.summary}
+                  </p>
+                  <Link
+                    href={`/news/${dispatchLead.slug}`}
+                    className="inline-flex items-center gap-2 border-b border-primary pb-1 text-sm font-bold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-primary"
+                  >
+                    {homePageContent.dispatchReadLabel}
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                </div>
+              </article>
+
+              <div className="space-y-8">
+                {dispatchSidebars.map((article) => (
+                  <article key={article.slug} className="group flex gap-5">
+                    <Link
+                      href={`/news/${article.slug}`}
+                      className="block h-28 w-28 flex-shrink-0 overflow-hidden rounded-lg bg-[linear-gradient(135deg,rgba(64,92,158,0.88),rgba(190,0,20,0.72))] bg-cover bg-center"
+                      style={
+                        article.image
+                          ? {
+                              backgroundImage: `linear-gradient(135deg,rgba(25,28,29,0.35),rgba(25,28,29,0.15)), url(${article.image})`,
+                            }
+                          : undefined
+                      }
+                    />
+                    <div className="space-y-2">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary">
+                        {article.category}
+                      </p>
+                      <h4 className="text-xl font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-primary">
+                        <Link href={`/news/${article.slug}`}>{article.title}</Link>
+                      </h4>
+                      <p className="line-clamp-2 leading-7 text-muted-foreground">
+                        {article.summary}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="campaign-card p-10">
+              <h3 className="text-3xl font-black tracking-[-0.03em] text-foreground">
+                {homePageContent.emptyNewsTitle}
+              </h3>
+              <p className="mt-4 max-w-2xl text-xl leading-8 text-muted-foreground">
+                {homePageContent.emptyNewsDescription}
+              </p>
+            </div>
+          )}
         </div>
       </PageSection>
 
       <PageSection tone="muted">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <PageTitle
-            eyebrow="Volunteer"
-            title="Volunteer with Chris Knoll for Minnesota Senate District 21."
-            description="Add your name to the campaign volunteer list and help share the message across southern Minnesota."
+            eyebrow={homePageContent.volunteerEyebrow}
+            title={homePageContent.volunteerTitle}
+            description={homePageContent.volunteerDescription}
           />
           <div className="campaign-card flex flex-col gap-5 p-8">
             <p className="text-base leading-7 text-muted-foreground">
-              Start with the volunteer page to share your contact information and how you would
-              like to help.
+              {homePageContent.volunteerBody}
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button asChild size="lg" className="campaign-button-primary h-12 px-6 text-sm uppercase tracking-[0.18em]">
-                <Link href="/volunteer">Join the Volunteer List</Link>
+                <Link href={homePageContent.volunteerPrimaryCtaHref}>
+                  {homePageContent.volunteerPrimaryCtaLabel}
+                </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="h-12 px-6 text-sm uppercase tracking-[0.18em]">
-                <Link href="/news">Read Campaign Info</Link>
+                <Link href={homePageContent.volunteerSecondaryCtaHref}>
+                  {homePageContent.volunteerSecondaryCtaLabel}
+                </Link>
               </Button>
             </div>
           </div>

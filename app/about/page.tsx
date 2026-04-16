@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BriefcaseBusiness, Home, Landmark, ShieldCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { PageSection, SplitHeroSection } from "@/components/campaign-ui";
-import { candidateProfile } from "@/lib/content";
+import { aboutPageContent, candidateProfile } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "About",
-  description:
-    `Learn more about ${candidateProfile.name}, his background, and his leadership experience in ${candidateProfile.race}.`,
+  title: aboutPageContent.metadataTitle,
+  description: aboutPageContent.metadataDescription,
 };
 
 export default function AboutPage() {
   return (
     <>
       <SplitHeroSection
-        imageSrc="/community-placeholder.svg"
-        imageAlt="Chris Knoll campaign community graphic"
-        eyebrow={`About ${candidateProfile.name}`}
+        imageSrc={aboutPageContent.heroImageSrc}
+        imageAlt={aboutPageContent.heroImageAlt}
+        eyebrow={aboutPageContent.heroEyebrow}
         title={candidateProfile.name}
         description={candidateProfile.shortBio}
       />
@@ -26,7 +26,7 @@ export default function AboutPage() {
       <PageSection tone="paper">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            Background
+            {aboutPageContent.backgroundTitle}
           </h2>
           <div className="mx-auto mt-6 h-1 w-24 bg-primary" />
         </div>
@@ -36,7 +36,7 @@ export default function AboutPage() {
               <div className="flex items-center gap-3">
                 <ShieldCheck className="size-6 text-primary" />
                 <h3 className="text-2xl font-bold tracking-tight text-foreground">
-                  Candidate Overview
+                  {aboutPageContent.overviewTitle}
                 </h3>
               </div>
               <p className="mt-5 text-lg leading-8 text-muted-foreground">
@@ -47,14 +47,14 @@ export default function AboutPage() {
               <div className="flex items-center gap-3">
                 <Home className="size-6 text-secondary" />
                 <h3 className="text-2xl font-bold tracking-tight text-foreground">
-                  Home and Family
+                  {aboutPageContent.familyTitle}
                 </h3>
               </div>
               <p className="mt-5 text-lg leading-8 text-muted-foreground">
                 {candidateProfile.family}
               </p>
               <p className="mt-4 text-base leading-7 text-muted-foreground">
-                Residence: {candidateProfile.residence}
+                {aboutPageContent.residenceLabel}: {candidateProfile.residence}
               </p>
             </div>
           </div>
@@ -63,7 +63,9 @@ export default function AboutPage() {
               <div className="aspect-video bg-[linear-gradient(135deg,rgba(64,92,158,0.9),rgba(190,0,20,0.75))]" />
             </div>
             <div className="campaign-card mt-6 max-w-xs p-6 lg:absolute lg:-bottom-10 lg:-left-10">
-              <h4 className="text-xl font-bold tracking-tight text-foreground">Campaign Focus</h4>
+              <h4 className="text-xl font-bold tracking-tight text-foreground">
+                {aboutPageContent.focusTitle}
+              </h4>
               <p className="mt-2 text-sm leading-7 text-muted-foreground">
                 {candidateProfile.coreMessage}
               </p>
@@ -75,13 +77,13 @@ export default function AboutPage() {
       <PageSection tone="muted">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between mb-14">
           <div className="max-w-2xl">
-            <p className="campaign-kicker">The Experience to Lead</p>
+            <p className="campaign-kicker">{aboutPageContent.experienceKicker}</p>
             <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-foreground sm:text-5xl">
-              Leadership Experience
+              {aboutPageContent.experienceTitle}
             </h2>
           </div>
           <p className="max-w-sm font-serif text-xl italic leading-8 text-muted-foreground">
-            Rural healthcare, nonprofit administration, public policy, and community service.
+            {aboutPageContent.experienceDescription}
           </p>
         </div>
 
@@ -91,7 +93,7 @@ export default function AboutPage() {
               <BriefcaseBusiness className="size-7" />
             </div>
             <h3 className="mt-6 text-3xl font-bold tracking-tight text-foreground">
-              Leadership Roles
+              {aboutPageContent.rolesTitle}
             </h3>
             <div className="mt-6 grid gap-4 border-t border-border/50 pt-8">
               {candidateProfile.professionalDetails.map((detail) => (
@@ -104,18 +106,20 @@ export default function AboutPage() {
 
           <article className="md:col-span-4 rounded-xl bg-secondary p-10 text-secondary-foreground relative overflow-hidden">
             <Landmark className="absolute right-6 top-6 size-28 opacity-10" />
-            <h3 className="relative z-10 text-3xl font-bold tracking-tight">District 21</h3>
+            <h3 className="relative z-10 text-3xl font-bold tracking-tight">
+              {aboutPageContent.districtTitle}
+            </h3>
             <p className="relative z-10 mt-4 text-lg leading-8 text-secondary-foreground/85">
               {candidateProfile.districtContext}
             </p>
             <p className="relative z-10 mt-8 text-sm font-bold uppercase tracking-[0.18em] underline underline-offset-8 decoration-primary-container">
-              Southern Minnesota
+              {aboutPageContent.districtLabel}
             </p>
           </article>
 
           <article className="md:col-span-5 rounded-xl bg-primary p-10 text-primary-foreground">
             <h3 className="text-3xl font-bold tracking-tight text-primary-foreground">
-              Home Community
+              {aboutPageContent.homeCommunityTitle}
             </h3>
             <p className="mt-4 text-lg leading-8 text-primary-foreground/88">
               {candidateProfile.family}
@@ -129,11 +133,17 @@ export default function AboutPage() {
 
           <article className="campaign-card md:col-span-7 flex flex-col gap-6 p-10 lg:flex-row lg:items-center">
             <div className="hidden size-36 flex-shrink-0 overflow-hidden rounded-full bg-muted lg:block">
-              <div className="h-full w-full bg-[linear-gradient(135deg,rgba(190,0,20,0.82),rgba(64,92,158,0.72))]" />
+              <Image
+                src="/knoll.webp"
+                alt={aboutPageContent.heroImageAlt}
+                width={144}
+                height={144}
+                className="h-full w-full object-cover"
+              />
             </div>
             <div>
               <h3 className="text-2xl font-bold tracking-tight text-foreground">
-                Campaign Message
+                {aboutPageContent.campaignMessageTitle}
               </h3>
               <p className="mt-3 leading-8 text-muted-foreground">
                 {candidateProfile.shortBio}
@@ -152,12 +162,12 @@ export default function AboutPage() {
             <div className="absolute -left-6 -top-6 hidden size-36 rounded-full bg-primary/8 lg:block" />
           </div>
           <div className="campaign-card p-10">
-            <p className="campaign-kicker">Values</p>
+            <p className="campaign-kicker">{aboutPageContent.valuesKicker}</p>
             <h2 className="mt-3 text-4xl font-bold tracking-tight text-foreground">
-              Core Message
+              {aboutPageContent.valuesTitle}
             </h2>
             <p className="mt-4 text-lg leading-8 text-muted-foreground">
-              {candidateProfile.coreMessage}
+              {aboutPageContent.valuesDescription}
             </p>
           </div>
         </div>
@@ -167,27 +177,29 @@ export default function AboutPage() {
         <div className="relative overflow-hidden rounded-2xl bg-primary px-8 py-14 text-center shadow-2xl sm:px-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent_32%)]" />
           <div className="relative z-10 mx-auto max-w-3xl">
-            <p className="campaign-kicker text-white/85">Get Involved</p>
+            <p className="campaign-kicker text-white/85">{aboutPageContent.involvementKicker}</p>
             <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">
-              Support the campaign in District 21.
+              {aboutPageContent.involvementTitle}
             </h2>
             <p className="mt-5 text-xl leading-8 text-white/86">
-              Help share Chris Knoll&apos;s message across southern Minnesota.
+              {aboutPageContent.involvementDescription}
             </p>
             <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
               <Button
                 asChild
                 className="h-12 bg-white px-6 text-sm uppercase tracking-[0.18em] text-primary hover:bg-white/90"
               >
-                <Link href="/issues">View the Issues</Link>
+                <Link href={aboutPageContent.involvementPrimaryCtaHref}>
+                  {aboutPageContent.involvementPrimaryCtaLabel}
+                </Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 className="h-12 border-white/70 bg-transparent px-6 text-sm uppercase tracking-[0.18em] text-white hover:bg-white hover:text-primary"
               >
-                <Link href="/volunteer">
-                  Volunteer
+                <Link href={aboutPageContent.involvementSecondaryCtaHref}>
+                  {aboutPageContent.involvementSecondaryCtaLabel}
                   <ArrowRight className="size-4" />
                 </Link>
               </Button>
