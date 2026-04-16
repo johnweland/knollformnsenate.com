@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { navigationItems } from "@/lib/content";
+import { navigationItems, siteHeaderContent } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -23,10 +23,10 @@ export function SiteHeader() {
             onClick={() => setIsOpen(false)}
           >
             <span className="text-sm font-bold uppercase tracking-[0.22em] text-primary">
-              Chris Knoll
+              {siteHeaderContent.brandName}
             </span>
             <span className="font-serif text-base text-foreground sm:text-lg">
-              Minnesota Senate District 21
+              {siteHeaderContent.brandSubtitle}
             </span>
           </Link>
           <div className="hidden items-center gap-4 lg:flex">
@@ -57,10 +57,10 @@ export function SiteHeader() {
               className="campaign-button-primary h-10 px-4 text-xs uppercase tracking-[0.18em]"
             >
               <Link
-                href="https://secure.winred.com/knoll-for-mn-senate-f5a4118f/donate-today"
+                href={siteHeaderContent.donateUrl}
                 target="_blank"
               >
-                Donate
+                {siteHeaderContent.donateLabel}
               </Link>
             </Button>
           </div>
@@ -68,7 +68,9 @@ export function SiteHeader() {
             type="button"
             aria-expanded={isOpen}
             aria-label={
-              isOpen ? "Close navigation menu" : "Open navigation menu"
+              isOpen
+                ? siteHeaderContent.closeNavigationLabel
+                : siteHeaderContent.openNavigationLabel
             }
             className="flex size-11 items-center justify-center rounded-md border border-border bg-background text-foreground lg:hidden"
             onClick={() => setIsOpen((open) => !open)}
@@ -106,11 +108,11 @@ export function SiteHeader() {
               className="campaign-button-primary mt-5 h-11 w-full px-4 text-xs uppercase tracking-[0.18em]"
             >
               <Link
-                href="https://secure.winred.com/knoll-for-mn-senate-f5a4118f/donate-today"
+                href={siteHeaderContent.donateUrl}
                 target="_blank"
                 onClick={() => setIsOpen(false)}
               >
-                Donate
+                {siteHeaderContent.donateLabel}
               </Link>
             </Button>
           </div>

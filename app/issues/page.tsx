@@ -4,10 +4,15 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { PageSection } from "@/components/campaign-ui";
-import { candidateProfile, issues, issuesOverview } from "@/lib/content";
+import {
+  candidateProfile,
+  issues,
+  issuesOverview,
+  issuesPageContent,
+} from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Issues",
+  title: issuesPageContent.metadataTitle,
   description: issuesOverview,
 };
 
@@ -17,12 +22,12 @@ export default function IssuesPage() {
       <PageSection tone="paper" className="pb-8 pt-20 sm:pt-24 lg:pt-28">
         <div className="flex flex-col gap-12 md:flex-row md:items-end">
           <div className="flex-1">
-            <p className="campaign-kicker">Core Priorities</p>
+            <p className="campaign-kicker">{issuesPageContent.heroKicker}</p>
             <h1 className="mt-4 font-sans text-6xl font-black leading-none tracking-[-0.06em] text-foreground sm:text-7xl lg:text-8xl">
-              Issues for
+              {issuesPageContent.heroTitleStart}
               <br />
               <span className="font-serif text-secondary italic font-normal tracking-tight">
-                District 21
+                {issuesPageContent.heroTitleHighlight}
               </span>
             </h1>
             <p className="mt-8 max-w-3xl font-serif text-2xl leading-relaxed text-muted-foreground">
@@ -54,7 +59,7 @@ export default function IssuesPage() {
                 </p>
                 <div className="mt-8 rounded-lg border-[3px] border-primary bg-white p-8">
                   <h3 className="text-2xl font-black tracking-tight text-foreground">
-                    Focus Areas
+                    {issuesPageContent.focusAreasTitle}
                   </h3>
                   <ul className="mt-5 space-y-4">
                     {issue.points.map((point) => (
@@ -79,7 +84,7 @@ export default function IssuesPage() {
             <div className="absolute inset-0 opacity-10 [background-image:radial-gradient(circle_at_2px_2px,white_1px,transparent_0)] [background-size:40px_40px]" />
             <div className="relative z-10">
               <h2 className="text-4xl font-black text-white sm:text-5xl">
-                Support the campaign in District 21
+                {issuesPageContent.ctaTitle}
               </h2>
               <p className="mx-auto mt-6 max-w-3xl font-serif text-xl leading-8 text-white/85">
                 {candidateProfile.coreMessage}
@@ -89,8 +94,8 @@ export default function IssuesPage() {
                   asChild
                   className="campaign-button-primary h-12 px-6 text-lg tracking-wide text-white"
                 >
-                  <Link href="/volunteer">
-                    Volunteer
+                  <Link href={issuesPageContent.ctaPrimaryCtaHref}>
+                    {issuesPageContent.ctaPrimaryCtaLabel}
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>
@@ -98,7 +103,9 @@ export default function IssuesPage() {
                   asChild
                   className="h-12 bg-white px-6 text-lg tracking-wide text-secondary hover:bg-surface-bright"
                 >
-                  <Link href="/about">About Chris</Link>
+                  <Link href={issuesPageContent.ctaSecondaryCtaHref}>
+                    {issuesPageContent.ctaSecondaryCtaLabel}
+                  </Link>
                 </Button>
               </div>
             </div>
