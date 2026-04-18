@@ -1,5 +1,25 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Newsletter configuration
+
+The newsletter signup flow is wired to the Mailchimp Marketing API through a server action.
+
+Create a local `.env.local` with:
+
+```bash
+MAILCHIMP_API_KEY=your-mailchimp-api-key
+MAILCHIMP_AUDIENCE_ID=your-mailchimp-audience-id
+MAILCHIMP_API_SERVER=usX
+MAILCHIMP_SUBSCRIBE_STATUS=pending
+MAILCHIMP_NEWSLETTER_TAG=Newsletter
+```
+
+Notes:
+
+- `MAILCHIMP_API_SERVER` is the Mailchimp data center prefix such as `us6`.
+- `MAILCHIMP_SUBSCRIBE_STATUS` can be `pending` for double opt-in or `subscribed` for immediate subscription.
+- In production on Amplify, store these values as Amplify secrets rather than committing env files.
+
 ## Getting Started
 
 First, run the development server:
