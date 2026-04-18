@@ -61,6 +61,14 @@ type UpsertMailchimpMemberInput = {
   note?: string;
 };
 
+function logMailchimpConfigIssue(details: Record<string, unknown>) {
+  console.error("[mailchimp] configuration error", details);
+}
+
+function logMailchimpRequestIssue(details: Record<string, unknown>) {
+  console.error("[mailchimp] request error", details);
+}
+
 function getMailchimpConfig(): MailchimpConfig | null {
   const apiKey = process.env.MAILCHIMP_API_KEY?.trim();
   const audienceId = process.env.MAILCHIMP_AUDIENCE_ID?.trim();
@@ -74,6 +82,15 @@ function getMailchimpConfig(): MailchimpConfig | null {
   const apiServer = configuredApiServer || derivedApiServer;
 
   if (!apiKey || !audienceId || !apiServer) {
+    logMailchimpConfigIssue({
+      hasApiKey: Boolean(apiKey),
+      hasAudienceId: Boolean(audienceId),
+      hasConfiguredApiServer: Boolean(configuredApiServer),
+      hasDerivedApiServer: Boolean(derivedApiServer),
+      subscribeStatus,
+      hasNewsletterTag: Boolean(newsletterTag),
+    });
+
     return null;
   }
 
@@ -155,6 +172,17 @@ async function upsertMailchimpMember(input: UpsertMailchimpMemberInput) {
       .filter(Boolean)
       .join(" ");
     const detail = error?.detail || fieldErrors || "";
+
+    logMailchimpRequestIssue({
+      audienceId: config.audienceId,
+      apiServer: config.apiServer,
+      email,
+      status: response.status,
+      detail,
+      hasTags: Boolean(input.tags?.length),
+      hasAddress: Boolean(input.address),
+      hasPhone: Boolean(input.phone?.trim()),
+    });
 
     if (
       detail.toLowerCase().includes("permanently deleted") &&
