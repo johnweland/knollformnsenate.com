@@ -179,7 +179,8 @@ export const siteHeaderContent = {
   brandName: candidateProfile.name,
   brandSubtitle: candidateProfile.race,
   donateLabel: "Donate",
-  donateUrl: "https://secure.winred.com/knoll-for-mn-senate-f5a4118f/donate-today",
+  donateUrl:
+    "https://secure.winred.com/knoll-for-mn-senate-f5a4118f/donate-today",
   openNavigationLabel: "Open navigation menu",
   closeNavigationLabel: "Close navigation menu",
 };
@@ -193,7 +194,8 @@ export const siteFooterContent = {
   newsletterButtonLabel: "Stay Updated",
   newsletterDisclaimer: PLACEHOLDER_CONTENT,
   navigationLabel: "Navigation",
-  copyright: "© 2026 Paid for by Knoll for Senate Committee. All rights reserved.",
+  copyright:
+    "© 2026 Paid for by Knoll for Senate Committee. All rights reserved.",
 };
 
 export const sharedComponentContent = {
@@ -329,10 +331,20 @@ export const volunteerPageContent = {
   formLastNamePlaceholder: "Doe",
   formEmailLabel: "Email Address",
   formEmailPlaceholder: "john@example.com",
+  formPhoneLabel: "Phone Number",
+  formPhonePlaceholder: "(320) 555-0123",
+  formAddressLine1Label: "Street Address",
+  formAddressLine1Placeholder: "123 Main Street",
+  formAddressLine2Label: "Apartment, suite, etc. (optional)",
+  formAddressLine2Placeholder: "Suite 200",
+  formCityLabel: "City",
+  formCityPlaceholder: "St. James",
+  formStateLabel: "State",
+  formStatePlaceholder: "MN",
   formZipLabel: "Zip Code",
   formZipPlaceholder: "56081",
   formInterestsLabel: "Interests",
-  formInterestsPlaceholder: "Select Option",
+  formInterestsHelp: "Select every area where you would like to help.",
   formInterestOptions: [
     { value: "community-outreach", label: "Community Outreach" },
     { value: "phone-banking", label: "Phone Banking" },

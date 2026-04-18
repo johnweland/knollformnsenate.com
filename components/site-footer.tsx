@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
+import { NewsletterSignup } from "@/components/newsletter-signup";
 import {
   candidateProfile,
   footerNavigationItems,
@@ -24,31 +24,19 @@ export function SiteFooter() {
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-900">
               {siteFooterContent.stayInformedLabel}
             </p>
-            <div className="space-y-4">
-              <p className="font-serif text-lg leading-8 text-slate-600">
-                {siteFooterContent.stayInformedDescription}
-              </p>
-              <form className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
-                <label htmlFor="newsletter-email" className="sr-only">
-                  {siteFooterContent.newsletterEmailLabel}
-                </label>
-                <input
-                  id="newsletter-email"
-                  type="email"
-                  placeholder={siteFooterContent.newsletterEmailPlaceholder}
-                  className="h-11 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-primary"
-                />
-                <Button
-                  type="submit"
-                  className="campaign-button-primary h-11 px-5 text-xs uppercase tracking-[0.18em] text-white sm:w-auto"
-                >
-                  {siteFooterContent.newsletterButtonLabel}
-                </Button>
-              </form>
-              <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
-                {siteFooterContent.newsletterDisclaimer}
-              </p>
-            </div>
+            <NewsletterSignup
+              source="site-footer"
+              description={siteFooterContent.stayInformedDescription}
+              emailLabel={siteFooterContent.newsletterEmailLabel}
+              emailPlaceholder={siteFooterContent.newsletterEmailPlaceholder}
+              buttonLabel={siteFooterContent.newsletterButtonLabel}
+              disclaimer={siteFooterContent.newsletterDisclaimer}
+              hideLabel
+              inputClassName="border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-primary"
+              buttonClassName="campaign-button-primary h-11 px-5 text-xs uppercase tracking-[0.18em] text-white sm:w-auto"
+              messageClassName="text-slate-700"
+              className="space-y-4"
+            />
           </div>
         </div>
         <div className="space-y-5 ml-auto">

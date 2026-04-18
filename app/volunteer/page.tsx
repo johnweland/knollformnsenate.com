@@ -2,14 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2, ClipboardPen, Handshake, Info, PhoneCall } from "lucide-react";
 
+import { NewsletterSignup } from "@/components/newsletter-signup";
+import { VolunteerSignupForm } from "@/components/volunteer-signup-form";
 import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { PageSection } from "@/components/campaign-ui";
 import { candidateProfile, volunteerPageContent } from "@/lib/content";
 
@@ -147,86 +142,7 @@ export default function VolunteerPage() {
           </div>
 
           <div className="bg-surface-container-lowest p-10 sm:p-16 lg:w-2/3">
-            <form className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-              <div>
-                <label className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                  {volunteerPageContent.formFirstNameLabel}
-                </label>
-                <input
-                  className="w-full rounded-md border border-input bg-surface-container-low px-4 py-4 text-foreground shadow-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  placeholder={volunteerPageContent.formFirstNamePlaceholder}
-                  type="text"
-                />
-              </div>
-              <div>
-                <label className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                  {volunteerPageContent.formLastNameLabel}
-                </label>
-                <input
-                  className="w-full rounded-md border border-input bg-surface-container-low px-4 py-4 text-foreground shadow-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  placeholder={volunteerPageContent.formLastNamePlaceholder}
-                  type="text"
-                />
-              </div>
-              <div className="sm:col-span-2">
-                <label className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                  {volunteerPageContent.formEmailLabel}
-                </label>
-                <input
-                  className="w-full rounded-md border border-input bg-surface-container-low px-4 py-4 text-foreground shadow-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  placeholder={volunteerPageContent.formEmailPlaceholder}
-                  type="email"
-                />
-              </div>
-              <div>
-                <label className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                  {volunteerPageContent.formZipLabel}
-                </label>
-                <input
-                  className="w-full rounded-md border border-input bg-surface-container-low px-4 py-4 text-foreground shadow-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  placeholder={volunteerPageContent.formZipPlaceholder}
-                  type="text"
-                />
-              </div>
-              <div>
-                <label className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                  {volunteerPageContent.formInterestsLabel}
-                </label>
-                <Select>
-                  <SelectTrigger className="font-sans">
-                    <SelectValue placeholder={volunteerPageContent.formInterestsPlaceholder} />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {volunteerPageContent.formInterestOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="sm:col-span-2">
-                <label className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                  {volunteerPageContent.formWhyLabel}
-                </label>
-                <textarea
-                  className="w-full rounded-md border border-input bg-surface-container-low px-4 py-4 text-foreground shadow-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  placeholder={volunteerPageContent.formWhyPlaceholder}
-                  rows={4}
-                />
-              </div>
-              <div className="sm:col-span-2 flex items-start gap-3">
-                <input className="mt-1 rounded-sm border-outline-variant text-primary focus:ring-primary" type="checkbox" />
-                <span className="text-sm leading-7 text-muted-foreground">
-                  {volunteerPageContent.formConsentLabel}
-                </span>
-              </div>
-              <div className="sm:col-span-2 pt-2">
-                <Button className="campaign-button-primary h-14 w-full text-xl font-extrabold uppercase tracking-tight text-white">
-                  {volunteerPageContent.formSubmitLabel}
-                </Button>
-              </div>
-            </form>
+            <VolunteerSignupForm />
           </div>
         </div>
       </PageSection>
@@ -241,16 +157,18 @@ export default function VolunteerPage() {
               {volunteerPageContent.updatesDescription}
             </p>
           </div>
-          <div className="flex w-full flex-col gap-2 md:w-auto md:flex-row">
-            <input
-              className="rounded-md border border-white/20 bg-white/10 px-6 py-4 text-white placeholder:text-white/60 md:w-80"
-              placeholder={volunteerPageContent.updatesEmailPlaceholder}
-              type="text"
-            />
-            <Button className="campaign-button-primary h-14 px-8 text-sm font-bold uppercase tracking-[0.18em] text-white">
-              {volunteerPageContent.updatesButtonLabel}
-            </Button>
-          </div>
+          <NewsletterSignup
+            source="volunteer-updates"
+            emailLabel={volunteerPageContent.formEmailLabel}
+            emailPlaceholder={volunteerPageContent.updatesEmailPlaceholder}
+            buttonLabel={volunteerPageContent.updatesButtonLabel}
+            hideLabel
+            className="w-full md:w-auto"
+            formClassName="md:grid-cols-[20rem_auto]"
+            inputClassName="border-white/20 bg-white/10 text-white placeholder:text-white/60 focus:border-white"
+            buttonClassName="campaign-button-primary h-14 px-8 text-sm font-bold uppercase tracking-[0.18em] text-white"
+            messageClassName="text-white"
+          />
         </div>
       </section>
     </>
