@@ -51,13 +51,16 @@ export default async function NewsPage(props: PageProps<"/news">) {
               <div className="group relative z-10 overflow-hidden rounded-lg shadow-2xl lg:col-span-8">
                 <Link href={`/news/${featuredArticle.slug}`} className="block">
                   <div
-                    className="h-[420px] w-full bg-[linear-gradient(135deg,rgba(190,0,20,0.88),rgba(64,92,158,0.82))] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                    className="h-[420px] w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                     style={
                       featuredArticle.image
                         ? {
-                            backgroundImage: `linear-gradient(135deg,rgba(25,28,29,0.45),rgba(25,28,29,0.2)), url(${featuredArticle.image})`,
+                            backgroundImage: `url(${featuredArticle.image})`,
                           }
-                        : undefined
+                        : {
+                            backgroundImage:
+                              "linear-gradient(135deg,rgba(190,0,20,0.88),rgba(64,92,158,0.82))",
+                          }
                     }
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -110,12 +113,15 @@ export default async function NewsPage(props: PageProps<"/news">) {
                         style={
                           article.image
                             ? {
-                                backgroundImage: `linear-gradient(135deg,rgba(25,28,29,0.35),rgba(25,28,29,0.15)), url(${article.image})`,
+                                backgroundImage: `url(${article.image})`,
                               }
-                            : undefined
+                            : {
+                                backgroundImage:
+                                  "linear-gradient(135deg,rgba(64,92,158,0.78),rgba(190,0,20,0.48))",
+                              }
                         }
                       >
-                        <div className="h-full w-full bg-[linear-gradient(135deg,rgba(64,92,158,0.78),rgba(190,0,20,0.48))] transition-transform duration-500 group-hover:scale-110" />
+                        <div className="h-full w-full transition-transform duration-500 group-hover:scale-110" />
                       </Link>
                     )}
 
