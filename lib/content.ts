@@ -36,7 +36,7 @@ export const candidateProfile: CandidateProfile = {
   status: "Endorsed Republican candidate",
   residence: "St. James, Minnesota",
   family:
-    "Chris and his wife Amanda live in St. James and have a blended family with four children. As a family, they enjoy road trips, water parks, and cheering on their kids at basketball, volleyball, and football games.",
+    "Chris and his wife, Amanda, live in St. James and are the proud parents of a blended family with four children. Family is at the center of their lives, and they truly treasure every moment they spend together. They enjoy taking road trips, spending days at the water park, and cheering on their kids at basketball, volleyball, and football games.",
   shortBio:
     "Chris Knoll is the CEO of Minnewaska Community Health Services and a licensed Department of Human Services provider with firsthand experience navigating state government systems.",
   longBio:
@@ -57,7 +57,7 @@ export const candidateProfile: CandidateProfile = {
   hero: {
     headline: "Chris Knoll for Minnesota Senate District 21",
     subheadline:
-      "Leading with Faith and Inspiring Hope. As the endorsed Republican candidate, Chris Knoll is committed to serving the people of District 21 and defending the values that define the community.",
+      "Leading with Faith and Inspiring Hope. As the endorsed Republican candidate, Chris Knoll is committed to serving the people of District 21 and defending the values that define the District.",
   },
 };
 
@@ -108,9 +108,9 @@ export const issues: Issue[] = [
     eyebrow: "Schools",
     title: "Education Reform",
     summary:
-      "Schools should focus on core academics, reading, writing, and arithmetic, while empowering parents through school choice.",
+      "Schools should focus on core academics, reading, writing, and math, while empowering parents through school choice.",
     points: [
-      "Focus on core academics: reading, writing, and arithmetic.",
+      "Focus on core academics: reading, writing, and math.",
       "Empower parents through school choice.",
     ],
   },
@@ -172,7 +172,7 @@ export const issues: Issue[] = [
 ];
 
 export const issuesOverview =
-  "District 21 families, farmers, and business owners deserve better.";
+  "Chris is running to bring accountability, strong leadership and real results to Minnesota Senate District 21. We need your help to make it happen.";
 
 export const siteHeaderContent = {
   brandName: candidateProfile.name,
@@ -183,6 +183,19 @@ export const siteHeaderContent = {
   openNavigationLabel: "Open navigation menu",
   closeNavigationLabel: "Close navigation menu",
 };
+
+export const socialLinks = [
+  {
+    label: "Facebook",
+    href: "https://facebook.com/knollformnsenate",
+    ariaLabel: "Visit Chris Knoll for Senate on Facebook",
+  },
+  {
+    label: "X",
+    href: "https://x.com/chrisrknoll",
+    ariaLabel: "Visit Chris Knoll for Senate on X",
+  },
+] as const;
 
 export const siteFooterContent = {
   campaignName: `${candidateProfile.name} for Senate`,
@@ -195,6 +208,7 @@ export const siteFooterContent = {
   newsletterDisclaimer:
     "By signing up, you agree to receive email updates from Knoll for Senate.",
   navigationLabel: "Navigation",
+  connectLabel: "Connect",
   copyright:
     "© 2026 Paid for by Knoll for Senate Committee. All rights reserved.",
 };
@@ -250,7 +264,6 @@ export const aboutPageContent = {
   rolesTitle: "Leadership Roles",
   districtTitle: "District 21",
   districtLabel: "Southern Minnesota",
-  homeCommunityTitle: "Home Community",
   campaignMessageTitle: "Campaign Message",
   valuesKicker: "Values",
   valuesTitle: "Core Message",

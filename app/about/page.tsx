@@ -146,21 +146,7 @@ export default function AboutPage() {
             </p>
           </article>
 
-          <article className="md:col-span-5 rounded-xl bg-primary p-10 text-primary-foreground">
-            <h3 className="text-3xl font-bold tracking-tight text-primary-foreground">
-              {aboutPageContent.homeCommunityTitle}
-            </h3>
-            <p className="mt-4 text-lg leading-8 text-primary-foreground/88">
-              {candidateProfile.family}
-            </p>
-            <div className="mt-8 flex -space-x-2">
-              <div className="size-10 rounded-full border-2 border-primary bg-white/80" />
-              <div className="size-10 rounded-full border-2 border-primary bg-white/60" />
-              <div className="size-10 rounded-full border-2 border-primary bg-white/40" />
-            </div>
-          </article>
-
-          <article className="campaign-card md:col-span-7 flex flex-col gap-6 p-10 lg:flex-row lg:items-center">
+          <article className="campaign-card md:col-span-8 flex flex-col gap-6 p-10 lg:flex-row lg:items-center">
             <div className="hidden size-36 flex-shrink-0 overflow-hidden rounded-full bg-muted lg:block">
               <Image
                 src="/knoll.webp"
