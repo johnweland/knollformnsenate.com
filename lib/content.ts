@@ -13,8 +13,6 @@ export const footerNavigationItems = [
   { href: "/volunteer", label: "Volunteer" },
 ];
 
-export const PLACEHOLDER_CONTENT = "content needed";
-
 export type CandidateProfile = {
   name: string;
   race: string;
@@ -36,8 +34,9 @@ export const candidateProfile: CandidateProfile = {
   name: "Chris Knoll",
   race: "Minnesota State Senate District 21",
   status: "Endorsed Republican candidate",
-  residence: PLACEHOLDER_CONTENT,
-  family: PLACEHOLDER_CONTENT,
+  residence: "St. James, Minnesota",
+  family:
+    "Chris and his wife Amanda live in St. James and have a blended family with four children. As a family, they enjoy road trips, water parks, and cheering on their kids at basketball, volleyball, and football games.",
   shortBio:
     "Chris Knoll is the CEO of Minnewaska Community Health Services and a licensed Department of Human Services provider with firsthand experience navigating state government systems.",
   longBio:
@@ -188,11 +187,13 @@ export const siteHeaderContent = {
 export const siteFooterContent = {
   campaignName: `${candidateProfile.name} for Senate`,
   stayInformedLabel: "Stay Informed",
-  stayInformedDescription: PLACEHOLDER_CONTENT,
+  stayInformedDescription:
+    "Sign up for campaign updates, event announcements, and ways to get involved across District 21.",
   newsletterEmailLabel: "Email address",
   newsletterEmailPlaceholder: "Enter your email address",
   newsletterButtonLabel: "Stay Updated",
-  newsletterDisclaimer: PLACEHOLDER_CONTENT,
+  newsletterDisclaimer:
+    "By signing up, you agree to receive email updates from Knoll for Senate.",
   navigationLabel: "Navigation",
   copyright:
     "© 2026 Paid for by Knoll for Senate Committee. All rights reserved.",
@@ -221,7 +222,8 @@ export const homePageContent = {
     "No news yet. Add a markdown file in news-articles when campaign updates are ready.",
   volunteerEyebrow: "Volunteer",
   volunteerTitle: `Volunteer with ${candidateProfile.name} for ${candidateProfile.race}.`,
-  volunteerDescription: PLACEHOLDER_CONTENT,
+  volunteerDescription:
+    "Help build momentum across District 21 through grassroots outreach, events, and community support.",
   volunteerBody:
     "Start with the volunteer page to share your contact information and how you would like to help.",
   volunteerPrimaryCtaLabel: "Join the Volunteer List",
@@ -255,7 +257,8 @@ export const aboutPageContent = {
   valuesDescription: candidateProfile.coreMessage,
   involvementKicker: "Get Involved",
   involvementTitle: "Support the campaign in District 21.",
-  involvementDescription: PLACEHOLDER_CONTENT,
+  involvementDescription:
+    "Volunteer, stay connected, and help share Chris Knoll's message of accountability, conservative leadership, and real results across District 21.",
   involvementPrimaryCtaLabel: "View the Issues",
   involvementPrimaryCtaHref: "/issues",
   involvementSecondaryCtaLabel: "Volunteer",
@@ -277,15 +280,18 @@ export const issuesPageContent = {
 
 export const newsPageContent = {
   metadataTitle: "News",
-  metadataDescription: PLACEHOLDER_CONTENT,
+  metadataDescription:
+    "Read campaign updates, local coverage, and announcements from Chris Knoll for Minnesota Senate District 21.",
   heroTitle: "Newsroom",
-  heroDescription: PLACEHOLDER_CONTENT,
+  heroDescription:
+    "Stay up to date with campaign news, local coverage, and updates from Chris Knoll as the race for Senate District 21 moves forward.",
   emptyStateTitle: "No news yet",
   emptyStateDescription:
     "No news yet. Add a markdown file in news-articles when campaign updates are ready.",
   featuredReadLabel: "Read the Full Dispatch",
   briefingTitle: "Get the Briefing",
-  briefingDescription: PLACEHOLDER_CONTENT,
+  briefingDescription:
+    "Get the latest campaign updates and important news from across District 21 delivered to your inbox.",
   briefingEmailPlaceholder: "YOUR EMAIL ADDRESS",
   briefingButtonLabel: "Join the Briefing",
   overviewTitle: "Campaign Overview",
@@ -297,7 +303,7 @@ export const newsArticlePageContent = {
   heroImageSrc: "/editorial-placeholder.svg",
   heroImageAlt: "Campaign article graphic",
   nextStepKicker: "Next Step",
-  nextStepTitle: PLACEHOLDER_CONTENT,
+  nextStepTitle: "Join the campaign and stay connected.",
   primaryCtaLabel: "Volunteer",
   primaryCtaHref: "/volunteer",
   secondaryCtaLabel: "Back to News",
@@ -306,10 +312,11 @@ export const newsArticlePageContent = {
 
 export const volunteerPageContent = {
   metadataTitle: "Volunteer",
-  metadataDescription: PLACEHOLDER_CONTENT,
+  metadataDescription:
+    "Join Chris Knoll's campaign for Minnesota Senate District 21 and help build momentum through outreach, events, and grassroots support.",
   heroEyebrow: "Volunteer",
-  heroTitleLineOne: "content",
-  heroTitleLineTwo: "needed",
+  heroTitleLineOne: "Join the",
+  heroTitleLineTwo: "campaign",
   heroPrimaryCtaLabel: "Join the Volunteer List",
   heroPrimaryCtaHref: "#signup",
   heroSecondaryCtaLabel: "Learn More",
@@ -317,13 +324,17 @@ export const volunteerPageContent = {
   missionTitle: "Why Volunteer",
   focusLabel: "Campaign Focus",
   communityOutreachTitle: "Community Outreach",
-  communityOutreachDescription: PLACEHOLDER_CONTENT,
+  communityOutreachDescription:
+    "Campaigns are powered by people, and there are many ways to get involved. Whether it is knocking doors, handing out literature, or helping spread the word in your community, your time and support can make a real difference.",
   phoneBankingTitle: "Phone Banking",
-  phoneBankingDescription: PLACEHOLDER_CONTENT,
+  phoneBankingDescription:
+    "Every conversation matters. Reaching voters directly helps share Chris Knoll's message of accountability, strong leadership, and real results across District 21.",
   eventsTitle: "Events and Outreach",
-  eventsDescription: PLACEHOLDER_CONTENT,
+  eventsDescription:
+    "From parades to community events, every handshake and every hour volunteered helps build momentum and strengthen the campaign throughout the district.",
   signupTitle: "Join the campaign.",
-  signupDescription: PLACEHOLDER_CONTENT,
+  signupDescription:
+    "Chris Knoll is running to bring accountability, strong leadership, and real results to Minnesota Senate District 21. Sign up today and help move this campaign forward.",
   signupBenefits: ["Community Outreach", "Events", "Campaign Updates"],
   formFirstNameLabel: "First Name",
   formFirstNamePlaceholder: "John",
@@ -357,7 +368,8 @@ export const volunteerPageContent = {
     "By signing up, I agree to receive campaign emails and updates from Knoll for Senate.",
   formSubmitLabel: "Join the Team",
   updatesTitle: "Want updates from the campaign?",
-  updatesDescription: PLACEHOLDER_CONTENT,
+  updatesDescription:
+    "Join us in building momentum and standing up for the future of District 21.",
   updatesEmailPlaceholder: "Enter your email",
   updatesButtonLabel: "Stay Updated",
 };

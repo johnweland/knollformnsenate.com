@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, ClipboardPen, Handshake, Info, PhoneCall } from "lucide-react";
 
@@ -68,7 +69,7 @@ export default function VolunteerPage() {
             <p className="mt-8 font-serif text-xl leading-relaxed text-muted-foreground">
               {candidateProfile.shortBio}
             </p>
-            <div className="mt-12 rounded-xl border border-outline-variant/10 bg-surface-container-lowest p-8 shadow-sm">
+            <div className="mt-12 rounded-xl border border-outline-variant/10 bg-white p-8 shadow-sm">
               <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
                 {volunteerPageContent.focusLabel}
               </h4>
@@ -80,7 +81,7 @@ export default function VolunteerPage() {
 
           <div className="space-y-12 lg:col-span-7">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <article className="rounded-xl bg-surface-container-lowest p-10 shadow-sm transition-shadow hover:shadow-md sm:col-span-2">
+              <article className="rounded-xl bg-white p-10 shadow-sm transition-shadow hover:shadow-md sm:col-span-2">
                 <Handshake className="mb-4 size-10 text-primary" />
                 <h3 className="text-2xl font-bold text-foreground">
                   {volunteerPageContent.communityOutreachTitle}
@@ -90,7 +91,7 @@ export default function VolunteerPage() {
                 </p>
               </article>
 
-              <article className="rounded-xl border-t-4 border-secondary bg-surface-container-lowest p-8 shadow-sm transition-shadow hover:shadow-md">
+              <article className="rounded-xl border-t-4 border-secondary bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
                 <PhoneCall className="mb-4 size-8 text-secondary" />
                 <h3 className="text-xl font-bold text-foreground">
                   {volunteerPageContent.phoneBankingTitle}
@@ -100,7 +101,7 @@ export default function VolunteerPage() {
                 </p>
               </article>
 
-              <article className="rounded-xl border-t-4 border-tertiary bg-surface-container-lowest p-8 shadow-sm transition-shadow hover:shadow-md">
+              <article className="rounded-xl border-t-4 border-tertiary bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
                 <ClipboardPen className="mb-4 size-8 text-tertiary" />
                 <h3 className="text-xl font-bold text-foreground">
                   {volunteerPageContent.eventsTitle}
@@ -111,7 +112,13 @@ export default function VolunteerPage() {
               </article>
 
               <article className="relative h-80 overflow-hidden rounded-xl shadow-xl sm:col-span-2">
-                <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(64,92,158,0.78),rgba(190,0,20,0.48))]" />
+                <Image
+                  src="/knoll-speaking.webp"
+                  alt="Chris Knoll speaking in District 21"
+                  fill
+                  className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(64,92,158,0.35),rgba(190,0,20,0.18))]" />
                 <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/75 to-transparent p-8">
                   <p className="text-xl font-bold text-white">{candidateProfile.race}</p>
                 </div>

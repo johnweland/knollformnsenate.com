@@ -99,11 +99,11 @@ async function readNewsArticle(filename: string): Promise<NewsArticle> {
 
   return {
     slug,
-    title: frontmatter.title ?? "content needed",
-    summary: frontmatter.summary ?? "content needed",
-    category: frontmatter.category ?? "content needed",
-    date: frontmatter.date ?? "content needed",
-    readTime: frontmatter.readTime ?? "content needed",
+    title: frontmatter.title ?? "Untitled article",
+    summary: frontmatter.summary ?? "Campaign update",
+    category: frontmatter.category ?? "Campaign Update",
+    date: frontmatter.date ?? "Date unavailable",
+    readTime: frontmatter.readTime ?? "Read time unavailable",
     image: frontmatter.image,
     body,
   };

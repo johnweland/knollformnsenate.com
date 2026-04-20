@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BriefcaseBusiness, Home, Landmark, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  BriefcaseBusiness,
+  Home,
+  Landmark,
+  ShieldCheck,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { PageSection, SplitHeroSection } from "@/components/campaign-ui";
@@ -30,7 +36,7 @@ export default function AboutPage() {
           </h2>
           <div className="mx-auto mt-6 h-1 w-24 bg-primary" />
         </div>
-        <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-center">
+        <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div className="space-y-8">
             <div className="campaign-card p-8">
               <div className="flex items-center gap-3">
@@ -58,17 +64,35 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <div className="relative">
-            <div className="overflow-hidden rounded-xl bg-muted shadow-2xl">
-              <div className="aspect-video bg-[linear-gradient(135deg,rgba(64,92,158,0.9),rgba(190,0,20,0.75))]" />
+          <div className="space-y-8">
+            <div className="relative">
+              <div className="relative aspect-video overflow-hidden rounded-xl bg-muted shadow-2xl">
+                <Image
+                  src="/side-profile.jpeg"
+                  alt="Chris Knoll side profile"
+                  fill
+                  className="object-cover"
+                  style={{ transform: "scaleX(-1)" }}
+                />
+              </div>
+              <div className="campaign-card mt-6 max-w-xs p-6 lg:absolute lg:-bottom-10 lg:-left-10">
+                <h4 className="text-xl font-bold tracking-tight text-foreground">
+                  {aboutPageContent.focusTitle}
+                </h4>
+                <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                  {candidateProfile.coreMessage}
+                </p>
+              </div>
             </div>
-            <div className="campaign-card mt-6 max-w-xs p-6 lg:absolute lg:-bottom-10 lg:-left-10">
-              <h4 className="text-xl font-bold tracking-tight text-foreground">
-                {aboutPageContent.focusTitle}
-              </h4>
-              <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                {candidateProfile.coreMessage}
-              </p>
+            <div className="relative pt-12 lg:pt-16">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-muted shadow-xl">
+                <Image
+                  src="/knoll-family.jpeg"
+                  alt="Chris Knoll family"
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -77,7 +101,9 @@ export default function AboutPage() {
       <PageSection tone="muted">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between mb-14">
           <div className="max-w-2xl">
-            <p className="campaign-kicker">{aboutPageContent.experienceKicker}</p>
+            <p className="campaign-kicker">
+              {aboutPageContent.experienceKicker}
+            </p>
             <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-foreground sm:text-5xl">
               {aboutPageContent.experienceTitle}
             </h2>
@@ -97,7 +123,10 @@ export default function AboutPage() {
             </h3>
             <div className="mt-6 grid gap-4 border-t border-border/50 pt-8">
               {candidateProfile.professionalDetails.map((detail) => (
-                <p key={detail} className="text-lg leading-8 text-muted-foreground">
+                <p
+                  key={detail}
+                  className="text-lg leading-8 text-muted-foreground"
+                >
                   {detail}
                 </p>
               ))}
@@ -156,8 +185,14 @@ export default function AboutPage() {
       <PageSection tone="paper">
         <div className="grid gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div className="relative">
-            <div className="overflow-hidden rounded-xl bg-muted shadow-2xl">
-              <div className="aspect-[16/10] bg-[linear-gradient(135deg,rgba(190,0,20,0.78),rgba(64,92,158,0.72))]" />
+            <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-muted shadow-2xl">
+              <Image
+                src="/knoll-speaking.webp"
+                alt="Chris Knoll speaking"
+                fill
+                className="object-cover object-top"
+                style={{ transform: "scaleX(-1)" }}
+              />
             </div>
             <div className="absolute -left-6 -top-6 hidden size-36 rounded-full bg-primary/8 lg:block" />
           </div>
@@ -177,7 +212,9 @@ export default function AboutPage() {
         <div className="relative overflow-hidden rounded-2xl bg-primary px-8 py-14 text-center shadow-2xl sm:px-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent_32%)]" />
           <div className="relative z-10 mx-auto max-w-3xl">
-            <p className="campaign-kicker text-white/85">{aboutPageContent.involvementKicker}</p>
+            <p className="campaign-kicker text-white/85">
+              {aboutPageContent.involvementKicker}
+            </p>
             <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">
               {aboutPageContent.involvementTitle}
             </h2>
