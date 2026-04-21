@@ -3,7 +3,7 @@ import { Work_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { candidateProfile } from "@/lib/content";
+import { siteMetadata } from "@/lib/metadata";
 
 const fontSans = Work_Sans({
   subsets: ["latin"],
@@ -15,13 +15,7 @@ const fontSerif = Newsreader({
   variable: "--font-serif",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: candidateProfile.hero.headline,
-    template: `%s | ${candidateProfile.hero.headline}`,
-  },
-  description: candidateProfile.hero.subheadline,
-};
+export const metadata: Metadata = siteMetadata;
 
 export default function RootLayout({
   children,

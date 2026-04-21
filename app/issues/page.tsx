@@ -14,11 +14,14 @@ import {
   issuesOverview,
   issuesPageContent,
 } from "@/lib/content";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: issuesPageContent.metadataTitle,
   description: issuesOverview,
-};
+  pathname: "/issues",
+  image: issuesPageContent.heroImageSrc,
+});
 
 export default function IssuesPage() {
   return (

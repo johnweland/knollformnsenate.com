@@ -18,11 +18,14 @@ import {
   SplitHeroSection,
 } from "@/components/campaign-ui";
 import { candidateProfile, volunteerPageContent } from "@/lib/content";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: volunteerPageContent.metadataTitle,
   description: volunteerPageContent.metadataDescription,
-};
+  pathname: "/volunteer",
+  image: volunteerPageContent.heroImageSrc,
+});
 
 export default function VolunteerPage() {
   return (

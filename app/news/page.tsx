@@ -5,12 +5,15 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageSection } from "@/components/campaign-ui";
 import { candidateProfile, newsPageContent } from "@/lib/content";
+import { createPageMetadata } from "@/lib/metadata";
 import { getAllNewsArticles } from "@/lib/news";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: newsPageContent.metadataTitle,
   description: newsPageContent.metadataDescription,
-};
+  pathname: "/news",
+  image: "/news/knoll-webber.jpg",
+});
 
 const ARTICLES_PER_PAGE = 3;
 

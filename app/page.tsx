@@ -15,13 +15,15 @@ import {
   issues,
   issuesOverview,
 } from "@/lib/content";
+import { createPageMetadata } from "@/lib/metadata";
 import { getAllNewsArticles } from "@/lib/news";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: homePageContent.metadataTitle,
-  description:
-    `${candidateProfile.hero.headline}. ${candidateProfile.hero.subheadline}`,
-};
+  description: `${candidateProfile.hero.headline}. ${candidateProfile.hero.subheadline}`,
+  pathname: "/",
+  image: homePageContent.heroImageSrc,
+});
 
 export default async function HomePage() {
   const featuredNews = (await getAllNewsArticles()).slice(0, 3);

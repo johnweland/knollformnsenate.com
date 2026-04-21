@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { HeroSection, PageSection } from "@/components/campaign-ui";
 import { newsArticlePageContent } from "@/lib/content";
+import { createNewsArticleMetadata, createPageMetadata } from "@/lib/metadata";
 import {
   getAllNewsArticles,
   getNewsArticleBySlug,
@@ -26,15 +27,15 @@ export async function generateMetadata(
   const article = await getNewsArticleBySlug(slug);
 
   if (!article) {
-    return {
+    return createPageMetadata({
       title: newsArticlePageContent.notFoundTitle,
-    };
+      description: "The requested campaign news article could not be found.",
+      pathname: "/news",
+      image: newsArticlePageContent.heroImageSrc,
+    });
   }
 
-  return {
-    title: article.title,
-    description: article.summary,
-  };
+  return createNewsArticleMetadata(article);
 }
 
 export default async function NewsArticlePage(props: PageProps<"/news/[slug]">) {
