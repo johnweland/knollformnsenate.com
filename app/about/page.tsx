@@ -209,7 +209,7 @@ export default function AboutPage() {
             <p className="campaign-kicker text-white/85">
               {aboutPageContent.involvementKicker}
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">
+            <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] text-white">
               {aboutPageContent.involvementTitle}
             </h2>
             <p className="mt-5 text-xl leading-8 text-white/86">
