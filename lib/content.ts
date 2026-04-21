@@ -281,6 +281,8 @@ export const aboutPageContent = {
 export const issuesPageContent = {
   metadataTitle: "Issues",
   heroKicker: "Core Priorities",
+  heroImageSrc: "/knoll-group.jpg",
+  heroImageAlt: "Chris Knoll portrait",
   heroTitleStart: "Issues for",
   heroTitleHighlight: "District 21",
   focusAreasTitle: "Focus Areas",
@@ -328,6 +330,8 @@ export const volunteerPageContent = {
   metadataDescription:
     "Join Chris Knoll's campaign for Minnesota Senate District 21 and help build momentum through outreach, events, and grassroots support.",
   heroEyebrow: "Volunteer",
+  heroImageSrc: "/knoll-group2.jpg",
+  heroImageAlt: "Chris Knoll speaking in District 21",
   heroTitleLineOne: "Join the",
   heroTitleLineTwo: "campaign",
   heroPrimaryCtaLabel: "Join the Volunteer List",

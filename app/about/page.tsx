@@ -10,7 +10,11 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { PageSection, SplitHeroSection } from "@/components/campaign-ui";
+import {
+  CampaignDivider,
+  PageSection,
+  SplitHeroSection,
+} from "@/components/campaign-ui";
 import { aboutPageContent, candidateProfile } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -28,6 +32,7 @@ export default function AboutPage() {
         title={candidateProfile.name}
         description={candidateProfile.shortBio}
       />
+      <CampaignDivider />
 
       <PageSection tone="paper">
         <div className="max-w-4xl mx-auto text-center mb-16">
@@ -97,6 +102,7 @@ export default function AboutPage() {
           </div>
         </div>
       </PageSection>
+      <CampaignDivider />
 
       <PageSection tone="muted">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between mb-14">
@@ -167,6 +173,7 @@ export default function AboutPage() {
           </article>
         </div>
       </PageSection>
+      <CampaignDivider />
 
       <PageSection tone="paper">
         <div className="grid gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
@@ -193,6 +200,7 @@ export default function AboutPage() {
           </div>
         </div>
       </PageSection>
+      <CampaignDivider />
 
       <PageSection tone="muted">
         <div className="relative overflow-hidden rounded-2xl bg-primary px-8 py-14 text-center shadow-2xl sm:px-12">

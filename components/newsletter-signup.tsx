@@ -82,7 +82,6 @@ export function NewsletterSignup({
 
       <form
         action={formAction}
-        method="POST"
         className={cn(
           "grid gap-3",
           variant === "inline" && "sm:grid-cols-[1fr_auto] sm:items-end",

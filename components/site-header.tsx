@@ -68,8 +68,8 @@ export function SiteHeader() {
               </span>
             </div>
           </Link>
-          <div className="hidden items-center gap-8 lg:flex">
-            <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold uppercase tracking-[0.14em] text-foreground/75">
+          <div className="hidden items-center gap-4 lg:flex">
+            <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold uppercase tracking-[0.14em] text-foreground/75">
               {navigationItems.map((item) => {
                 const active =
                   item.href === "/"
@@ -91,7 +91,7 @@ export function SiteHeader() {
                 );
               })}
             </nav>
-            <div className="flex items-center gap-2 border-l border-border/60 pl-6">
+            <div className="flex items-center gap-2 border-l border-border/60 pl-4">
               {socialLinks.map((item) => (
                 <Link
                   key={item.href}

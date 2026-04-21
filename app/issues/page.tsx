@@ -3,7 +3,11 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { PageSection } from "@/components/campaign-ui";
+import {
+  CampaignDivider,
+  PageSection,
+  SplitHeroSection,
+} from "@/components/campaign-ui";
 import {
   candidateProfile,
   issues,
@@ -19,26 +23,16 @@ export const metadata: Metadata = {
 export default function IssuesPage() {
   return (
     <>
-      <PageSection tone="paper" className="pb-8 pt-20 sm:pt-24 lg:pt-28">
-        <div className="flex flex-col gap-12 md:flex-row md:items-end">
-          <div className="flex-1">
-            <p className="campaign-kicker">{issuesPageContent.heroKicker}</p>
-            <h1 className="mt-4 font-sans text-6xl font-black leading-none tracking-[-0.06em] text-foreground sm:text-7xl lg:text-8xl">
-              {issuesPageContent.heroTitleStart}
-              <br />
-              <span className="font-serif text-secondary italic font-normal tracking-tight">
-                {issuesPageContent.heroTitleHighlight}
-              </span>
-            </h1>
-            <p className="mt-8 max-w-3xl font-serif text-2xl leading-relaxed text-muted-foreground">
-              {issuesOverview}
-            </p>
-          </div>
-          <div className="hidden h-[2px] w-full bg-tertiary md:block md:mb-6 md:w-1/3" />
-        </div>
-      </PageSection>
+      <SplitHeroSection
+        imageSrc={issuesPageContent.heroImageSrc}
+        imageAlt={issuesPageContent.heroImageAlt}
+        eyebrow={issuesPageContent.heroKicker}
+        title={`${issuesPageContent.heroTitleStart} ${issuesPageContent.heroTitleHighlight}`}
+        description={issuesOverview}
+      />
+      <CampaignDivider />
 
-      <div className="space-y-24 pb-24 pt-8">
+      <div className="space-y-24">
         {issues.map((issue, index) => (
           <PageSection
             key={issue.slug}
@@ -77,6 +71,7 @@ export default function IssuesPage() {
           </PageSection>
         ))}
       </div>
+      <CampaignDivider />
 
       <PageSection tone="paper" className="pt-0">
         <section className="mx-auto max-w-5xl text-center">

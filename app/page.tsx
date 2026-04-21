@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight, ChevronRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
+  CampaignDivider,
   PageSection,
   PageTitle,
   SplitHeroSection,
@@ -55,6 +56,7 @@ export default async function HomePage() {
           </>
         }
       />
+      <CampaignDivider />
 
       <PageSection tone="paper">
         <div className="space-y-14">
@@ -96,6 +98,7 @@ export default async function HomePage() {
           </div>
         </div>
       </PageSection>
+      <CampaignDivider />
 
       <PageSection tone="paper">
         <div className="space-y-12">
@@ -190,6 +193,7 @@ export default async function HomePage() {
           )}
         </div>
       </PageSection>
+      <CampaignDivider />
 
       <PageSection tone="muted">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">

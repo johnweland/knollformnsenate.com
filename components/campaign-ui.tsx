@@ -30,6 +30,29 @@ export function PageSection({
   );
 }
 
+export function CampaignDivider({ className }: { className?: string }) {
+  return (
+    <div className="relative z-10 h-0">
+      <div className="campaign-container pointer-events-none relative -translate-y-1/2">
+        <div
+          className={cn(
+            "mx-auto flex w-full items-center justify-center gap-4",
+            className,
+          )}
+        >
+          <div className="h-[2px] flex-1 bg-primary" />
+          <div className="flex shrink-0 items-center gap-3 text-[#98A2B3] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+            <span className="text-base leading-none">★</span>
+            <span className="text-2xl leading-none text-[#C6CFDB]">★</span>
+            <span className="text-base leading-none">★</span>
+          </div>
+          <div className="h-[2px] flex-1 bg-primary" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function PageTitle({
   eyebrow,
   title,
@@ -45,7 +68,9 @@ export function PageTitle({
       <h1 className="max-w-5xl font-sans text-4xl font-black tracking-[-0.04em] text-foreground sm:text-5xl lg:text-6xl">
         {title}
       </h1>
-      <p className="max-w-3xl text-lg leading-8 text-muted-foreground">{description}</p>
+      <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
+        {description}
+      </p>
     </div>
   );
 }
@@ -88,12 +113,18 @@ export function HeroSection({
             align === "center" && "mx-auto text-center",
           )}
         >
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-white/82">{eyebrow}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-white/82">
+            {eyebrow}
+          </p>
           <h1 className="font-sans text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
             {title}
           </h1>
-          <p className="max-w-3xl text-lg leading-8 text-white/82 sm:text-xl">{description}</p>
-          {actions ? <div className="flex flex-col gap-3 sm:flex-row">{actions}</div> : null}
+          <p className="max-w-3xl text-lg leading-8 text-white/82 sm:text-xl">
+            {description}
+          </p>
+          {actions ? (
+            <div className="flex flex-col gap-3 sm:flex-row">{actions}</div>
+          ) : null}
           {stats ? <div className="pt-3">{stats}</div> : null}
         </div>
       </div>
@@ -120,7 +151,17 @@ export function SplitHeroSection({
 }) {
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,rgba(248,249,250,0.98),rgba(231,232,233,0.92))]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(232,27,35,0.18),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(64,92,158,0.18),transparent_32%)]" />
+      <Image
+        src="/flag-bg.webp"
+        alt=""
+        fill
+        priority
+        aria-hidden="true"
+        className="object-cover opacity-20"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-white/75" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(64,92,158,0.18),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(232,27,35,0.18),transparent_32%)]" />
       <div className="campaign-container relative grid gap-14 py-16 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:py-24">
         <div className="space-y-7">
           <div className="space-y-4">
@@ -132,7 +173,9 @@ export function SplitHeroSection({
               {description}
             </p>
           </div>
-          {actions ? <div className="flex flex-col gap-3 sm:flex-row">{actions}</div> : null}
+          {actions ? (
+            <div className="flex flex-col gap-3 sm:flex-row">{actions}</div>
+          ) : null}
           {stats ? <div className="pt-2">{stats}</div> : null}
         </div>
         <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
@@ -183,7 +226,9 @@ export function ImagePanel({
       </div>
       <div className="space-y-3 px-3 pb-3 pt-5">
         <p className="campaign-kicker">{eyebrow}</p>
-        <h2 className="text-2xl font-semibold tracking-tight text-foreground">{title}</h2>
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+          {title}
+        </h2>
         <p className="leading-7 text-muted-foreground">{description}</p>
       </div>
     </div>
@@ -204,7 +249,9 @@ export function FeatureCard({
       <div className="flex size-11 items-center justify-center rounded-md bg-secondary text-secondary-foreground">
         <Icon className="size-5" />
       </div>
-      <h3 className="mt-5 text-2xl font-semibold tracking-tight text-foreground">{title}</h3>
+      <h3 className="mt-5 text-2xl font-semibold tracking-tight text-foreground">
+        {title}
+      </h3>
       <p className="mt-3 leading-7 text-muted-foreground">{description}</p>
     </article>
   );
@@ -242,7 +289,9 @@ export function QuoteBlock({
     <aside className="campaign-card relative overflow-hidden p-8">
       <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,var(--color-tertiary),var(--color-primary))]" />
       <blockquote className="space-y-5">
-        <p className="font-serif text-3xl leading-tight text-foreground">“{quote}”</p>
+        <p className="font-serif text-3xl leading-tight text-foreground">
+          “{quote}”
+        </p>
         <footer className="space-y-1">
           <p className="font-sans text-sm font-bold uppercase tracking-[0.18em] text-foreground">
             {attribution}
