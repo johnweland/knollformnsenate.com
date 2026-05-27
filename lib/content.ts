@@ -352,7 +352,12 @@ export const volunteerPageContent = {
   signupTitle: "Join the campaign.",
   signupDescription:
     "Chris Knoll is running to bring accountability, strong leadership, and real results to Minnesota Senate District 21. Sign up today and help move this campaign forward.",
-  signupBenefits: ["Community Outreach", "Events", "Campaign Updates"],
+  signupBenefits: [
+    "Community Outreach",
+    "Events",
+    "Campaign Updates",
+    "Yard Sign Request",
+  ],
   formFirstNameLabel: "First Name",
   formFirstNamePlaceholder: "John",
   formLastNameLabel: "Last Name",
@@ -377,6 +382,7 @@ export const volunteerPageContent = {
     { value: "community-outreach", label: "Community Outreach" },
     { value: "phone-banking", label: "Phone Banking" },
     { value: "events", label: "Events" },
+    { value: "yard-sign", label: "Yard Sign" },
     { value: "campaign-updates", label: "Campaign Updates" },
   ],
   formWhyLabel: "Why are you joining us?",

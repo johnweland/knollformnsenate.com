@@ -4,6 +4,7 @@ export const VOLUNTEER_INTEREST_TAGS = {
   "community-outreach": "Community Outreach",
   "phone-banking": "Phone Banking",
   events: "Events",
+  "yard-sign": "Yard Sign",
 } as const;
 
 export type VolunteerInterest = keyof typeof VOLUNTEER_INTEREST_TAGS | "campaign-updates";
