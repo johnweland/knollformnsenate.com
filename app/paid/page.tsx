@@ -6,7 +6,7 @@ export const metadata: Metadata = createPageMetadata({
   title: "Campaign Disclosures",
   description:
     "Campaign disclosures for Chris Knoll, Marj Fogelman, and Krist Wollum, and radio ad scripts for Chris Knoll.",
-  pathname: "/disclosures",
+  pathname: "/paid",
 });
 
 const disclosures = [

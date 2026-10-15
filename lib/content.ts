@@ -11,7 +11,7 @@ export const footerNavigationItems = [
   { href: "/issues", label: "The Issues" },
   { href: "/news", label: "Campaign Info" },
   { href: "/volunteer", label: "Volunteer" },
-  { href: "/disclosures", label: "Campaign Disclosures" },
+  { href: "/paid", label: "Campaign Disclosures" },
 ];
 
 export type CandidateProfile = {
